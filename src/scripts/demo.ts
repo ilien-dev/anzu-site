@@ -12,7 +12,9 @@ interface AnzuModule {
 }
 
 const DEMO_URL = "/demo/anzu_web.js";
-const WIDTH = 1180;
+// The smallest the real window can be made (`MIN_WIDTH` in crates/anzu/src/ui/mod.rs):
+// narrower than this, the app scales itself down instead of laying out again.
+const MIN_WIDTH = 820;
 const EASE = "cubic-bezier(0.76, 0, 0.24, 1)";
 
 // The demo is a static file in public/, outside the bundle: a module script loads it.
@@ -32,13 +34,11 @@ function themeNow(media: MediaQueryList): string {
   return media.matches ? "dark" : "light";
 }
 
-/** Scales the window as a whole to the room there is, never above its real size. */
+/** Offers the window at full size when the app has scaled itself well down to fit. */
 function fit(stage: HTMLElement, viewport: HTMLElement): void {
   const apply = () => {
     if ("full" in stage.dataset) return;
-    const scale = Math.min(1, viewport.clientWidth / WIDTH);
-    stage.style.setProperty("--s", String(scale));
-    stage.toggleAttribute("data-small", scale < 0.75);
+    stage.toggleAttribute("data-small", viewport.clientWidth / MIN_WIDTH < 0.8);
   };
   new ResizeObserver(apply).observe(viewport);
   apply();
