@@ -93,6 +93,32 @@ const stepStage = [0, 0, 0, 1, 2];
   </div>
 </section>
 
+<section id="responsible" class="border-t border-line" aria-labelledby="responsible-title">
+  <div class="mx-auto grid max-w-[1240px] gap-x-16 gap-y-10 px-4 py-24 sm:px-8 sm:py-32 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)]">
+    <div class="s-rise">
+      <h2 id="responsible-title" class="text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.1] font-bold tracking-[-0.03em] text-balance">{t.responsible.title}</h2>
+      <p class="mt-5 max-w-[60ch] text-[15px] leading-[1.75] font-bold text-warn">{t.responsible.lead}</p>
+      <h3 class="mt-10 text-[15px] font-bold">{t.responsible.whyTitle}</h3>
+      <p class="mt-2 max-w-[60ch] text-[15px] leading-[1.75] text-muted">
+        {t.responsible.whyBefore}<a href={LINKS.ogmios} class="text-fg underline decoration-accent decoration-2">{t.responsible.whyLink}</a>{t.responsible.whyAfter}
+      </p>
+    </div>
+    <div>
+      <ul class="list-none border-l-[3px] border-warn pl-6 sm:pl-8">
+        {
+          t.responsible.points.map((point) => (
+            <li class="s-row border-b border-line py-5 first:pt-0">
+              <h3 class="text-[15px] font-bold">{point.title}</h3>
+              <p class="mt-1.5 text-[14px] leading-[1.65] text-muted">{point.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-6 pl-6 text-[14px] font-bold sm:pl-8">{t.responsible.closing}</p>
+    </div>
+  </div>
+</section>
+
 <section id="name" class="border-t border-line" aria-labelledby="name-title">
   <div class="mx-auto grid max-w-[1240px] items-center gap-x-16 gap-y-10 px-4 py-24 sm:px-8 sm:py-32 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
     <div class="name-mark mx-auto grid aspect-square w-full max-w-[380px] place-items-center rounded-[6px] bg-shell text-shell-accent">
@@ -102,6 +128,22 @@ const stepStage = [0, 0, 0, 1, 2];
       <h2 id="name-title" class="text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.1] font-bold tracking-[-0.03em] text-balance">{t.name.title}</h2>
       <p class="mt-5 max-w-[58ch] text-[15px] leading-[1.75] text-muted">{t.name.body}</p>
     </div>
+  </div>
+</section>
+
+<section id="faq" class="border-t border-line" aria-labelledby="faq-title">
+  <div class="mx-auto max-w-[1240px] px-4 py-24 sm:px-8 sm:py-32">
+    <h2 id="faq-title" class="s-rise text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.1] font-bold tracking-[-0.03em] text-balance">{t.faq.title}</h2>
+    <dl class="mt-10 grid gap-x-12 sm:grid-cols-2">
+      {
+        t.faq.items.map((item) => (
+          <div class="s-rise border-t border-line py-5">
+            <dt class="text-[15px] font-bold">{item.q}</dt>
+            <dd class="mt-1.5 text-[14px] leading-[1.65] text-muted">{item.a}</dd>
+          </div>
+        ))
+      }
+    </dl>
   </div>
 </section>
 

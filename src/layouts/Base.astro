@@ -8,6 +8,25 @@ interface Props {
 }
 const { t } = Astro.props;
 const canonical = new URL(t.lang === "en" ? "/" : "/es/", Astro.site);
+const ogImage = new URL("/og.png", Astro.site);
+// What search engines read about the app. Only facts the README backs: no ratings.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Anzu",
+  description: t.description,
+  url: canonical.href,
+  inLanguage: t.htmlLang,
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "Windows 10, Windows 11",
+  fileFormat: "application/epub+zip",
+  downloadUrl: LINKS.releases,
+  license: "https://www.gnu.org/licenses/gpl-3.0.html",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  image: ogImage.href,
+  sameAs: [LINKS.repo],
+};
 ---
 
 <!doctype html>
@@ -20,6 +39,8 @@ const canonical = new URL(t.lang === "en" ? "/" : "/es/", Astro.site);
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={new URL("/", Astro.site)} />
     <link rel="alternate" hreflang="es" href={new URL("/es/", Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL("/", Astro.site)} />
+    <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
@@ -28,6 +49,14 @@ const canonical = new URL(t.lang === "en" ? "/" : "/es/", Astro.site);
     <meta property="og:title" content={t.title} />
     <meta property="og:description" content={t.description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Anzu" />
+    <meta property="og:locale" content={t.lang === "en" ? "en_US" : "es_ES"} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="min-h-screen antialiased">
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-app focus:bg-panel focus:px-3 focus:py-2">{t.skip}</a>
@@ -38,7 +67,7 @@ const canonical = new URL(t.lang === "en" ? "/" : "/es/", Astro.site);
     <footer class="bg-shell text-shell-muted">
       <div class="mx-auto flex max-w-[1240px] flex-wrap items-center gap-x-8 gap-y-4 border-t border-shell-line px-4 py-8 text-[12px] leading-[1.7] sm:px-8">
         <span class="flex items-center gap-2.5 text-on-shell"><Mark badge size={20} />anzu</span>
-        <span class="max-w-[70ch]">{t.footer.legal} <a class="text-on-shell" href={LINKS.satsuoni}>{t.footer.satsuoni}</a>.</span>
+        <span class="max-w-[70ch]">{t.footer.legal} <a class="text-on-shell" href={LINKS.satsuoni}>{t.footer.satsuoni}</a>. {t.footer.trademark}</span>
         <span class="ml-auto flex gap-6">
           <span>{t.footer.license}</span>
           <a class="text-on-shell" href={LINKS.repo}>{t.footer.source}</a>

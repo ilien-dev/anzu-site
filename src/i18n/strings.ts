@@ -14,7 +14,7 @@ export interface Strings {
   title: string;
   description: string;
   skip: string;
-  nav: { how: string; where: string; name: string; github: string; label: string };
+  nav: { how: string; responsible: string; faq: string; github: string; label: string };
   langSwitch: { label: string; other: string; otherHref: string; current: string };
   download: string;
   downloadLong: string;
@@ -49,8 +49,19 @@ export interface Strings {
     facts: Step[];
   };
   name: { title: string; body: string; mark: string };
+  responsible: {
+    title: string;
+    lead: string;
+    points: Step[];
+    closing: string;
+    whyTitle: string;
+    whyBefore: string;
+    whyLink: string;
+    whyAfter: string;
+  };
+  faq: { title: string; items: { q: string; a: string }[] };
   cta: { title: string; body: string; release: string };
-  footer: { legal: string; satsuoni: string; license: string; source: string };
+  footer: { legal: string; satsuoni: string; trademark: string; license: string; source: string };
 }
 
 const RELEASES = "https://github.com/ilien-dev/anzu/releases/latest";
@@ -58,16 +69,17 @@ export const LINKS = {
   releases: RELEASES,
   repo: "https://github.com/ilien-dev/anzu",
   satsuoni: "https://github.com/Satsuoni/DeDRM_tools",
+  ogmios: "https://github.com/ilien-dev/ogmios",
 };
 
 export const en: Strings = {
   lang: "en",
   htmlLang: "en",
-  title: "Anzu: Kindle to EPUB on Windows",
+  title: "Anzu: convert Kindle books to EPUB on Windows",
   description:
-    "Anzu finds the books you downloaded with the Kindle app on Windows, checks the unlock tool before it runs and saves them as EPUB in the folder you choose.",
+    "Free Windows app that converts the books you downloaded with the Kindle app for PC to EPUB. Its own KFX to EPUB converter, no Calibre needed. For personal use with books you bought.",
   skip: "Skip to content",
-  nav: { how: "How it works", where: "Where it saves", name: "The name", github: "GitHub", label: "Main" },
+  nav: { how: "How it works", responsible: "Use responsibly", faq: "Questions", github: "GitHub", label: "Main" },
   langSwitch: { label: "Language", other: "Español", otherHref: "/es/", current: "English" },
   download: "Download",
   downloadLong: "Download for Windows",
@@ -75,9 +87,9 @@ export const en: Strings = {
     titleA: "Your Kindle books,",
     titleB: "as EPUB.",
     lead:
-      "Anzu is a Windows app. It finds the books you downloaded with the Kindle app, checks the unlock tool before every run, asks before it closes anything, and writes EPUB files to the folder you choose.",
+      "Anzu is a free Windows app that converts Kindle books to EPUB. It finds the books you downloaded with the Kindle app for PC, checks the unlock tool before every run, asks before it closes anything, and writes EPUB files to the folder you choose.",
     secondary: "See how it works",
-    facts: ["Windows 10 and 11", "Free and open source, GPL-3.0", "Novels and other text-based books, not comics"],
+    facts: ["Windows 10 and 11", "Free and open source, GPL-3.0", "No Calibre needed", "Novels and other text-based books, not comics"],
   },
   demo: {
     label:
@@ -144,6 +156,51 @@ export const en: Strings = {
       "In Mesopotamian myth, Anzu is the bird that stole the Tablet of Destinies from the gods. The logo is an A made of two open wings over a tablet.",
     mark: "The Anzu logo: two wings forming an A over a tablet",
   },
+  responsible: {
+    title: "Use it responsibly.",
+    lead: "Anzu is for personal use only, and only with books you got legally.",
+    points: [
+      {
+        title: "Removing DRM can be against the law",
+        body: "Many countries, including the United States (under the DMCA) and the member states of the European Union, forbid getting around copy protection, and breaking that rule can lead to fines or other penalties. Check the law where you live.",
+      },
+      {
+        title: "It goes against Amazon's terms",
+        body: "When you use Kindle you accept the Kindle Store Terms of Use, and those terms do not allow removing the DRM of your books.",
+      },
+      {
+        title: "Only books you paid for",
+        body: "Use Anzu only with books you bought, or that you read through a subscription you pay for.",
+      },
+      {
+        title: "Never share the EPUB files",
+        body: "Do not send them to anyone, upload them or post them anywhere. Sharing a book whose DRM you removed is piracy, it is illegal, and it hurts the authors who wrote it.",
+      },
+    ],
+    closing: "You are responsible for how you use Anzu.",
+    whyTitle: "Why it exists",
+    whyBefore: "I made Anzu for myself, to practise English. I wrote another app, ",
+    whyLink: "Ogmios",
+    whyAfter:
+      ", where I practise English, and I wanted to use the books I read as material for it. With a book as an EPUB I can split it into chapters and pull out English vocabulary to study. That is the whole idea: using a book I paid for, in a different app of my own. Anzu was never meant to remove the DRM from a book so it can be passed on to other people. That would be illegal, and it should never be done.",
+  },
+  faq: {
+    title: "Questions.",
+    items: [
+      { q: "Is Anzu free?", a: "Yes. It is free and open source, under the GPL-3.0 license." },
+      { q: "Does it work on Mac or Linux?", a: "No. Anzu only runs on Windows 10 and 11, with the Kindle app from the Microsoft Store." },
+      { q: "Do I need Calibre?", a: "No. Anzu has its own KFX to EPUB converter, so you do not need Calibre or any plugin." },
+      {
+        q: "Can I read the EPUB on a Kobo, a phone or a tablet?",
+        a: "Yes, EPUB works in most reading apps and e-readers. The files are for you alone: copy them only to your own devices.",
+      },
+      { q: "Can it convert to MOBI, AZW3 or PDF?", a: "No. Anzu only creates EPUB files." },
+      {
+        q: "Why does Anzu sometimes refuse to unlock?",
+        a: "Because it could not make sure the unlock tool is safe and compatible: for example, the Kindle app updated and the tool does not support that version yet, or there is no connection to check. Anzu shows the reason. Books that are already unlocked can still be converted.",
+      },
+    ],
+  },
   cta: {
     title: "Open it, tick your books, get EPUB.",
     body: "Needs Windows 10 or 11 and the Kindle app from the Microsoft Store, signed in. Checking the tool needs a connection.",
@@ -152,6 +209,7 @@ export const en: Strings = {
   footer: {
     legal: "Anzu contains no decryption code. The DRM is removed by",
     satsuoni: "Satsuoni's tool",
+    trademark: "For personal use with books you bought. Anzu is not made or endorsed by Amazon; Kindle is a trademark of Amazon.com, Inc. or its affiliates.",
     license: "GPL-3.0",
     source: "Source on GitHub",
   },
@@ -160,11 +218,11 @@ export const en: Strings = {
 export const es: Strings = {
   lang: "es",
   htmlLang: "es",
-  title: "Anzu: de Kindle a EPUB en Windows",
+  title: "Anzu: convierte libros de Kindle a EPUB en Windows",
   description:
-    "Anzu encuentra los libros que descargaste con la app de Kindle en Windows, comprueba la herramienta de desbloqueo antes de usarla y los guarda como EPUB en la carpeta que elijas.",
+    "App gratuita para Windows que convierte a EPUB los libros que descargaste con la app de Kindle para PC. Conversor propio de KFX a EPUB, sin Calibre. Para uso personal con libros que compraste.",
   skip: "Saltar al contenido",
-  nav: { how: "Cómo funciona", where: "Dónde guarda", name: "El nombre", github: "GitHub", label: "Principal" },
+  nav: { how: "Cómo funciona", responsible: "Uso responsable", faq: "Preguntas", github: "GitHub", label: "Principal" },
   langSwitch: { label: "Idioma", other: "English", otherHref: "/", current: "Español" },
   download: "Descargar",
   downloadLong: "Descargar para Windows",
@@ -172,9 +230,9 @@ export const es: Strings = {
     titleA: "Tus libros de Kindle,",
     titleB: "en EPUB.",
     lead:
-      "Anzu es una app para Windows. Encuentra los libros que descargaste con la app de Kindle, comprueba la herramienta de desbloqueo antes de cada uso, pregunta antes de cerrar nada y guarda los EPUB en la carpeta que elijas.",
+      "Anzu es una app gratuita para Windows que convierte libros de Kindle a EPUB. Encuentra los libros que descargaste con la app de Kindle para PC, comprueba la herramienta de desbloqueo antes de cada uso, pregunta antes de cerrar nada y guarda los EPUB en la carpeta que elijas.",
     secondary: "Ver cómo funciona",
-    facts: ["Windows 10 y 11", "Libre y de código abierto, GPL-3.0", "Novelas y otros libros de texto corrido, no cómics"],
+    facts: ["Windows 10 y 11", "Libre y de código abierto, GPL-3.0", "Sin Calibre", "Novelas y otros libros de texto corrido, no cómics"],
   },
   demo: {
     label:
@@ -241,6 +299,51 @@ export const es: Strings = {
       "En la mitología mesopotámica, Anzu es el ave que robó a los dioses la Tablilla de los Destinos. El logo es una A formada por dos alas abiertas sobre una tablilla.",
     mark: "El logo de Anzu: dos alas que forman una A sobre una tablilla",
   },
+  responsible: {
+    title: "Úsala con responsabilidad.",
+    lead: "Anzu es solo para uso personal, y solo con libros que obtuviste de forma legal.",
+    points: [
+      {
+        title: "Quitar el DRM puede ser ilegal",
+        body: "Muchos países, entre ellos Estados Unidos (por la ley DMCA) y los estados de la Unión Europea, prohíben saltarse las protecciones anticopia, y hacerlo puede acarrear multas u otras sanciones. Revisa la ley de tu país.",
+      },
+      {
+        title: "Va en contra de las condiciones de Amazon",
+        body: "Al usar Kindle aceptas las Condiciones de uso de la Tienda Kindle, y esas condiciones no permiten quitar el DRM de tus libros.",
+      },
+      {
+        title: "Solo libros que pagaste",
+        body: "Usa Anzu solo con libros que compraste o que lees con una suscripción que pagas.",
+      },
+      {
+        title: "Nunca compartas los EPUB",
+        body: "No se los envíes a nadie, no los subas ni los publiques en ningún sitio. Compartir un libro al que le quitaste el DRM es piratería, es ilegal y perjudica a quienes lo escribieron.",
+      },
+    ],
+    closing: "Tú eres responsable del uso que hagas de Anzu.",
+    whyTitle: "Por qué existe",
+    whyBefore: "Hice Anzu para mí, para practicar inglés. Tengo otra app, ",
+    whyLink: "Ogmios",
+    whyAfter:
+      ", con la que practico inglés, y quería usar los libros que leo como material. Con un libro en EPUB puedo separarlo en capítulos y sacar de ahí vocabulario en inglés para estudiar. Esa es toda la idea: usar un libro que pagué en otra app mía. Anzu nunca tuvo como fin quitarle el DRM a un libro para pasárselo a otras personas. Eso es ilegal y no debe hacerse nunca.",
+  },
+  faq: {
+    title: "Preguntas.",
+    items: [
+      { q: "¿Anzu es gratis?", a: "Sí. Es libre y de código abierto, con licencia GPL-3.0." },
+      { q: "¿Funciona en Mac o Linux?", a: "No. Anzu solo funciona en Windows 10 y 11, con la app de Kindle de Microsoft Store." },
+      { q: "¿Necesito Calibre?", a: "No. Anzu tiene su propio conversor de KFX a EPUB, así que no necesitas Calibre ni ningún complemento." },
+      {
+        q: "¿Puedo leer el EPUB en un Kobo, un teléfono o una tableta?",
+        a: "Sí, el EPUB funciona en la mayoría de las apps de lectura y lectores electrónicos. Los archivos son solo para ti: cópialos únicamente a tus propios dispositivos.",
+      },
+      { q: "¿Puede convertir a MOBI, AZW3 o PDF?", a: "No. Anzu solo crea archivos EPUB." },
+      {
+        q: "¿Por qué Anzu a veces se niega a desbloquear?",
+        a: "Porque no pudo asegurarse de que la herramienta de desbloqueo es segura y compatible: por ejemplo, la app de Kindle se actualizó y la herramienta todavía no admite esa versión, o no hay conexión para comprobarlo. Anzu muestra el motivo. Los libros ya desbloqueados se pueden seguir convirtiendo.",
+      },
+    ],
+  },
   cta: {
     title: "Ábrela, marca tus libros, obtén EPUB.",
     body: "Necesita Windows 10 u 11 y la app de Kindle de Microsoft Store con tu sesión iniciada. Comprobar la herramienta requiere conexión.",
@@ -249,6 +352,7 @@ export const es: Strings = {
   footer: {
     legal: "Anzu no contiene código de descifrado. El DRM lo quita",
     satsuoni: "la herramienta de Satsuoni",
+    trademark: "Para uso personal con libros que compraste. Anzu no lo hace ni lo respalda Amazon; Kindle es una marca de Amazon.com, Inc. o sus filiales.",
     license: "GPL-3.0",
     source: "Código en GitHub",
   },

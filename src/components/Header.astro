@@ -13,16 +13,16 @@ const home = t.lang === "en" ? "/" : "/es/";
     <a href={home} class="m-fade flex items-center gap-3 text-on-shell no-underline" style="--d:.05s">
       <Mark badge size={28} />
       <span class="text-[17px] font-bold">anzu</span>
-      <span class="hidden text-[11px] text-shell-muted sm:inline">{t.demo.windowTitle.split(": ")[1]}</span>
+      <span class="hidden text-[11px] whitespace-nowrap text-shell-muted sm:inline">{t.demo.windowTitle.split(": ")[1]}</span>
     </a>
-    <nav aria-label={t.nav.label} class="m-fade ml-auto hidden items-center gap-7 text-[13px] md:flex" style="--d:.15s">
+    <nav aria-label={t.nav.label} class="m-fade ml-auto hidden items-center gap-7 text-[13px] whitespace-nowrap lg:flex" style="--d:.15s">
       <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#how">{t.nav.how}</a>
-      <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#where">{t.nav.where}</a>
-      <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#name">{t.nav.name}</a>
+      <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#responsible">{t.nav.responsible}</a>
+      <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#faq">{t.nav.faq}</a>
       <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href={LINKS.repo}>{t.nav.github}</a>
     </nav>
     <a
-      class="m-fade ml-auto rounded-app border border-shell-line px-2.5 py-1.5 text-[12px] text-shell-muted no-underline transition-colors hover:border-shell-accent hover:text-on-shell md:ml-0"
+      class="m-fade ml-auto rounded-app border border-shell-line px-2.5 py-1.5 text-[12px] text-shell-muted no-underline transition-colors hover:border-shell-accent hover:text-on-shell lg:ml-0"
       style="--d:.22s"
       href={t.langSwitch.otherHref}
       hreflang={t.lang === "en" ? "es" : "en"}
