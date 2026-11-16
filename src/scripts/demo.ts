@@ -102,6 +102,17 @@ function onEvents(stage: HTMLElement): (event: string) => void {
   };
 }
 
+/**
+ * The demo plays itself and ignores what the visitor does, but eframe listens for the
+ * wheel and for touches on its canvas and cancels them, so the page stopped scrolling over
+ * the window. Stopped here, on the way down to the canvas, those gestures scroll the page.
+ */
+function passThrough(viewport: HTMLElement): void {
+  for (const type of ["wheel", "touchstart", "touchmove", "touchend", "touchcancel"]) {
+    viewport.addEventListener(type, (event) => event.stopPropagation(), { capture: true, passive: true });
+  }
+}
+
 /** On small screens, the window can be opened at its real size, to pan around. */
 function fullSize(stage: HTMLElement): void {
   const open = stage.querySelector<HTMLButtonElement>("[data-open-full]");
@@ -154,6 +165,7 @@ function init(): void {
   if (!stage || !viewport) return;
   fit(stage, viewport);
   fullSize(stage);
+  passThrough(viewport);
 
   // Who asked for less motion starts the demo themselves.
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
