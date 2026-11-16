@@ -18,6 +18,8 @@ export interface Strings {
   langSwitch: { label: string; other: string; otherHref: string; current: string };
   download: string;
   downloadLong: string;
+  /** Before the number of the latest release, as in "Version 0.8.1". */
+  version: string;
   hero: { titleA: string; titleB: string; lead: string; secondary: string; facts: string[] };
   demo: {
     label: string;
@@ -80,6 +82,7 @@ export const en: Strings = {
   langSwitch: { label: "Language", other: "Español", otherHref: "/es/", current: "English" },
   download: "Download",
   downloadLong: "Download for Windows",
+  version: "Version",
   hero: {
     titleA: "Your Kindle books,",
     titleB: "as EPUB.",
@@ -220,6 +223,7 @@ export const es: Strings = {
   langSwitch: { label: "Idioma", other: "English", otherHref: "/", current: "Español" },
   download: "Descargar",
   downloadLong: "Descargar para Windows",
+  version: "Versión",
   hero: {
     titleA: "Tus libros de Kindle,",
     titleB: "en EPUB.",
