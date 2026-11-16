@@ -1,5 +1,6 @@
 ---
 import Stage from "./Stage.astro";
+import Version from "./Version.astro";
 import { LINKS, type Strings } from "../i18n/strings";
 interface Props {
   t: Strings;
@@ -34,6 +35,7 @@ const { t } = Astro.props;
             {t.hero.secondary}
           </a>
         </div>
+        <Version t={t} class="m-fade mt-3 text-muted" />
         <ul class="m-fade mt-5 flex list-none flex-wrap gap-2 p-0 text-[13px] text-muted" style="--d:.7s">
           {
             t.hero.facts.map((fact, i) => (

@@ -1,5 +1,6 @@
 ---
 import Mark from "./Mark.astro";
+import Version from "./Version.astro";
 import { LINKS, type Strings } from "../i18n/strings";
 interface Props {
   t: Strings;
@@ -170,6 +171,7 @@ const stepStage = [0, 0, 0, 1, 2];
       </a>
       <a href="https://github.com/ilien-dev/anzu/releases" class="text-[14px] text-on-shell underline decoration-shell-line hover:decoration-shell-accent">{t.cta.release}</a>
     </div>
+    <Version t={t} class="s-rise mt-4 text-shell-muted" />
   </div>
 </section>
 

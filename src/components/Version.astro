@@ -1,0 +1,37 @@
+---
+// The version and date of the latest release, under a download button.
+import { releaseLabel } from "../scripts/release";
+import { releaseAtBuild } from "../scripts/release-build";
+import type { Strings } from "../i18n/strings";
+interface Props {
+  t: Strings;
+  class?: string;
+}
+const { t, class: className } = Astro.props;
+const release = await releaseAtBuild();
+---
+
+<p
+  data-release
+  data-prefix={t.version}
+  data-locale={t.htmlLang}
+  class:list={["text-[13px] tabular-nums", className]}
+  hidden={!release}
+>
+  {release && releaseLabel(release, t.version, t.htmlLang)}
+</p>
+
+<script>
+  import { fetchRelease, releaseLabel } from "../scripts/release";
+
+  const notes = document.querySelectorAll<HTMLElement>("[data-release]");
+  if (notes.length > 0) {
+    fetchRelease().then((release) => {
+      if (!release) return;
+      for (const note of notes) {
+        note.textContent = releaseLabel(release, note.dataset.prefix ?? "", note.dataset.locale ?? "en");
+        note.hidden = false;
+      }
+    });
+  }
+</script>
