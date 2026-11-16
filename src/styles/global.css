@@ -1,10 +1,24 @@
 @import "tailwindcss";
 
-/* The type of the app itself (crates/anzu/assets/fonts), served from the site. */
+/* The type of the app itself (crates/anzu/assets/fonts), served from the site:
+   Inter for reading, Space Grotesk for headings and the name. JetBrains Mono stays for
+   file paths. */
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
   font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk-Bold.woff2") format("woff2");
+  font-weight: 700;
   font-display: swap;
 }
 @font-face {
@@ -14,55 +28,72 @@
   font-display: swap;
 }
 
-/* The palettes of the app (crates/anzu/src/ui/theme.rs): "Cold paper" and charcoal.
-   The header band is dark ink in both. Amber is never a background in the light theme. */
+/* The palettes of the app (crates/anzu/src/ui/theme.rs): "Coloured paper". Ink on cool
+   white, or light ink on night, and four pastels that name the state of a book: peach for
+   DRM, lilac for unlocked, mint for EPUB, butter for what is chosen. Pastels are fills,
+   never the colour of text; text on them is always ink. The header band is dark in both. */
 :root {
   color-scheme: light;
-  --bg: #f3f5f7;
+  --ink: #15161a;
+  --drm: #ffb4a2;
+  --unlocked: #c9b8ff;
+  --epub: #c8f0a0;
+  --info: #a8e1f5;
+  --butter: #fff27a;
+  --bg: #f4f5f7;
   --panel: #ffffff;
-  --line: #cbd2d9;
-  --fg: #14171a;
-  --muted: #55606b;
-  --accent: #b25e00;
+  --line: #e4e7ec;
+  --line-strong: #c9cdd5;
+  --fg: #15161a;
+  --muted: #565a64;
+  --quiet: #edeff2;
+  --accent: #15161a;
   --on-accent: #ffffff;
-  --shell: #14171a;
-  --on-shell: #f3f5f7;
-  --shell-muted: #a9b3bd;
-  --shell-line: #3a424a;
-  --shell-accent: #ffb000;
-  --on-shell-accent: #14171a;
-  /* The EPUB green on the dark band, in both themes: the light --ok is too dark there. */
-  --on-shell-ok: #a2d975;
-  --ok: #1f6b3a;
-  --warn: #a63a12;
-  --select: #fff1d6;
-  --hover: #f7f9fa;
+  --shell: #15161a;
+  --shell-chip: #26282e;
+  --on-shell: #ffffff;
+  --shell-muted: #c9ccd3;
+  --shell-line: #3a3d45;
+  --shell-accent: #fff27a;
+  --on-shell-accent: #15161a;
+  --on-shell-ok: #c8f0a0;
+  --ok: #2f7a1f;
+  --warn: #8a2e14;
+  --warn-bg: #fff4f1;
+  --drm-tint: #ffe3db;
+  --epub-tint: #e6f8d4;
+  --select: #fffbd6;
+  --hover: #f7f8fa;
   /* Windows 11 caption bar, light. */
   --caption: #f3f3f3;
   --caption-fg: #1b1b1b;
-  --window-shadow: 0 32px 64px -24px rgb(20 23 26 / 0.35), 0 2px 6px rgb(20 23 26 / 0.08);
+  --window-shadow: 0 32px 64px -24px rgb(21 22 26 / 0.3), 0 2px 6px rgb(21 22 26 / 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --bg: #0e0f0c;
-    --panel: #161812;
-    --line: #34382b;
-    --fg: #e9e6d6;
-    --muted: #a7a48f;
-    --accent: #ffb000;
-    --on-accent: #1a1200;
-    --shell: #1c1f17;
-    --on-shell: #e9e6d6;
-    --shell-muted: #a7a48f;
-    --shell-line: #3b4031;
-    --shell-accent: #ffb000;
-    --on-shell-accent: #1a1200;
-    --ok: #a2d975;
-    --warn: #ff9166;
-    --select: #2a2410;
-    --hover: #1b1d16;
+    --bg: #0e0f12;
+    --panel: #16171b;
+    --line: #2a2c33;
+    --line-strong: #3a3d45;
+    --fg: #ecedef;
+    --muted: #a3a7b0;
+    --quiet: #1e2025;
+    --accent: #fff27a;
+    --on-accent: #15161a;
+    --shell: #060708;
+    --shell-chip: #1e2025;
+    --on-shell: #ffffff;
+    --shell-muted: #a3a7b0;
+    --shell-line: #3a3d45;
+    --ok: #a9e57a;
+    --warn: #ffb4a2;
+    --warn-bg: #331c17;
+    --drm-tint: #3a2620;
+    --epub-tint: #22301b;
+    --select: #24220f;
+    --hover: #1b1d22;
     --caption: #202020;
     --caption-fg: #ffffff;
     --window-shadow: 0 40px 80px -28px rgb(0 0 0 / 0.75), 0 2px 8px rgb(0 0 0 / 0.4);
@@ -71,15 +102,19 @@
 
 @theme inline {
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
-  --font-sans: var(--font-mono);
+  --font-sans: "Inter", ui-sans-serif, "Segoe UI", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, "Segoe UI", sans-serif;
   --color-bg: var(--bg);
   --color-panel: var(--panel);
   --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
+  --color-quiet: var(--quiet);
   --color-accent: var(--accent);
   --color-on-accent: var(--on-accent);
   --color-shell: var(--shell);
+  --color-shell-chip: var(--shell-chip);
   --color-on-shell: var(--on-shell);
   --color-shell-muted: var(--shell-muted);
   --color-shell-line: var(--shell-line);
@@ -88,8 +123,18 @@
   --color-on-shell-ok: var(--on-shell-ok);
   --color-ok: var(--ok);
   --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
   --color-select: var(--select);
-  --radius-app: 3px;
+  --color-ink: var(--ink);
+  --color-drm: var(--drm);
+  --color-unlocked: var(--unlocked);
+  --color-epub: var(--epub);
+  --color-info: var(--info);
+  --color-butter: var(--butter);
+  --color-drm-tint: var(--drm-tint);
+  --color-epub-tint: var(--epub-tint);
+  --radius-app: 10px;
+  --radius-card: 16px;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
@@ -98,7 +143,7 @@
 html {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scrollbar-color: var(--line) var(--bg);
@@ -109,6 +154,12 @@ body {
   font-variant-numeric: tabular-nums;
   text-rendering: optimizeLegibility;
 }
+/* Headings and the name are set in Space Grotesk. */
+h1,
+h2,
+.font-display {
+  font-family: var(--font-display);
+}
 ::selection {
   background: var(--select);
   color: var(--fg);
@@ -116,7 +167,7 @@ body {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 a {
   text-underline-offset: 0.22em;

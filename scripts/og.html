@@ -5,31 +5,33 @@
 <meta charset="utf-8">
 <title>Anzu link preview</title>
 <style>
-  @font-face { font-family: "JetBrains Mono"; src: url("../public/fonts/JetBrainsMono-Regular.woff2") format("woff2"); font-weight: 400; }
-  @font-face { font-family: "JetBrains Mono"; src: url("../public/fonts/JetBrainsMono-Bold.woff2") format("woff2"); font-weight: 700; }
+  @font-face { font-family: "Inter"; src: url("../public/fonts/Inter-Regular.woff2") format("woff2"); font-weight: 400; }
+  @font-face { font-family: "Inter"; src: url("../public/fonts/Inter-SemiBold.woff2") format("woff2"); font-weight: 600; }
+  @font-face { font-family: "Space Grotesk"; src: url("../public/fonts/SpaceGrotesk-Bold.woff2") format("woff2"); font-weight: 700; }
   html, body { margin: 0; width: 1280px; height: 640px; overflow: hidden; }
-  body { background: #14171a; color: #f3f5f7; font-family: "JetBrains Mono", monospace; display: grid; grid-template-columns: 300px 1fr; align-items: center; gap: 72px; padding: 0 96px; box-sizing: border-box; }
+  body { background: #15161a; color: #ffffff; font-family: "Inter", sans-serif; display: grid; grid-template-columns: 300px 1fr; align-items: center; gap: 72px; padding: 0 96px; box-sizing: border-box; }
   .mark { width: 300px; height: 300px; }
-  h1 { font-size: 64px; line-height: 1.04; letter-spacing: -0.035em; margin: 0; font-weight: 700; }
-  h1 em { font-style: normal; color: #ffb000; }
-  p { color: #a9b3bd; font-size: 24px; line-height: 1.5; margin: 28px 0 0; }
+  h1 { font-family: "Space Grotesk", sans-serif; font-size: 68px; line-height: 1.02; letter-spacing: -0.045em; margin: 0; font-weight: 700; }
+  h1 em { font-style: normal; color: #15161a; background: #c8f0a0; border-radius: 18px; padding: 0 14px; }
+  p { color: #c9ccd3; font-size: 24px; line-height: 1.5; margin: 28px 0 0; }
   .track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 44px; max-width: 520px; }
-  .track span { height: 12px; border-radius: 2px; }
-  .labels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 520px; margin-top: 12px; font-size: 18px; font-weight: 700; }
-  .url { position: absolute; right: 96px; bottom: 48px; font-size: 20px; color: #a9b3bd; }
+  .track span { height: 14px; border-radius: 7px; }
+  .labels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 520px; margin-top: 14px; font-size: 18px; font-weight: 600; color: #ffffff; }
+  .labels span::before { content: ""; display: inline-block; width: 14px; height: 14px; border-radius: 4px; margin-right: 10px; vertical-align: -1px; background: var(--c); }
+  .url { position: absolute; right: 96px; bottom: 48px; font-size: 20px; color: #c9ccd3; }
 </style>
 <body>
   <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
-    <rect width="64" height="64" rx="14.72" fill="#ffb000"/>
-    <g transform="translate(10.88 10.88) scale(0.66)" fill="#14171a">
-      <polygon points="32,6 10,58 20,58 32,28"/><polygon points="32,6 32,28 44,58 54,58"/><rect x="28.5" y="46" width="7" height="12"/>
+    <rect width="64" height="64" rx="18" fill="#26282e"/>
+    <g transform="translate(10.88 10.88) scale(0.66)">
+      <polygon points="32,6 10,58 20,58 32,28" fill="#c9b8ff"/><polygon points="32,6 32,28 44,58 54,58" fill="#ffb4a2"/><rect x="27" y="44" width="10" height="14" rx="2" fill="#fff27a"/>
     </g>
   </svg>
   <div>
     <h1>Kindle books<br>to <em>EPUB</em>,<br>on Windows.</h1>
     <p>Free and open source. No Calibre needed.</p>
-    <div class="track"><span style="background:#ff9166"></span><span style="background:#ffb000"></span><span style="background:#a2d975"></span></div>
-    <div class="labels"><span style="color:#ff9166">With DRM</span><span style="color:#ffb000">Unlocked</span><span style="color:#a2d975">EPUB</span></div>
+    <div class="track"><span style="background:#ffb4a2"></span><span style="background:#c9b8ff"></span><span style="background:#c8f0a0"></span></div>
+    <div class="labels"><span style="--c:#ffb4a2">With DRM</span><span style="--c:#c9b8ff">Unlocked</span><span style="--c:#c8f0a0">EPUB</span></div>
   </div>
   <div class="url">anzu.ilien.dev</div>
 </body>

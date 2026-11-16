@@ -11,31 +11,37 @@ const home = t.lang === "en" ? "/" : "/es/";
 <header class="bg-shell text-on-shell">
   <div class="mx-auto flex h-16 max-w-[1240px] items-center gap-6 px-4 sm:px-8">
     <a href={home} class="m-fade flex items-center gap-3 text-on-shell no-underline" style="--d:.05s">
-      <Mark badge size={28} />
-      <span class="text-[17px] font-bold">anzu</span>
-      <span class="hidden text-[11px] whitespace-nowrap text-shell-muted sm:inline">{t.demo.windowTitle.split(": ")[1]}</span>
+      <Mark badge size={32} />
+      <span class="font-display text-[20px] font-bold tracking-[-0.03em]">Anzu</span>
+      <span class="hidden text-[12px] whitespace-nowrap text-shell-muted sm:inline">{t.demo.windowTitle.split(": ")[1]}</span>
     </a>
-    <nav aria-label={t.nav.label} class="m-fade ml-auto hidden items-center gap-7 text-[13px] whitespace-nowrap lg:flex" style="--d:.15s">
+    <nav aria-label={t.nav.label} class="m-fade ml-auto hidden items-center gap-7 text-[14px] whitespace-nowrap lg:flex" style="--d:.15s">
       <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#how">{t.nav.how}</a>
       <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#responsible">{t.nav.responsible}</a>
       <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#faq">{t.nav.faq}</a>
       <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href={LINKS.repo}>{t.nav.github}</a>
     </nav>
     <a
-      class="m-fade ml-auto rounded-app border border-shell-line px-2.5 py-1.5 text-[12px] text-shell-muted no-underline transition-colors hover:border-shell-accent hover:text-on-shell lg:ml-0"
+      class="m-fade ml-auto inline-flex items-center gap-2 rounded-app border border-shell-line px-3 py-1.5 text-[13px] text-shell-muted no-underline transition-colors hover:border-shell-accent hover:text-on-shell lg:ml-0"
       style="--d:.22s"
       href={t.langSwitch.otherHref}
       hreflang={t.lang === "en" ? "es" : "en"}
       lang={t.lang === "en" ? "es" : "en"}
       data-lang-link
     >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.5 2.6 4 5.8 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.8-4-9s1.5-6.4 4-9z" />
+      </svg>
       {t.langSwitch.other}
     </a>
     <a
-      class="m-fade inline-flex min-h-9 items-center rounded-app bg-shell-accent px-3.5 text-[13px] font-bold text-on-shell-accent no-underline transition-[filter,transform] duration-300 ease-out-expo hover:-translate-y-px hover:brightness-110"
+      class="m-fade inline-flex min-h-10 items-center gap-2 rounded-app bg-shell-accent px-4 text-[14px] font-semibold text-on-shell-accent no-underline transition-[filter,transform] duration-300 ease-out-expo hover:-translate-y-px hover:brightness-105"
       style="--d:.3s"
       href={LINKS.releases}
     >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <rect x="3" y="3" width="8.4" height="8.4" rx="0.6" /><rect x="12.6" y="3" width="8.4" height="8.4" rx="0.6" /><rect x="3" y="12.6" width="8.4" height="8.4" rx="0.6" /><rect x="12.6" y="12.6" width="8.4" height="8.4" rx="0.6" />
+      </svg>
       {t.download}
     </a>
   </div>

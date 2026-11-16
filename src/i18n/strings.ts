@@ -130,7 +130,7 @@ export const en: Strings = {
         title: "Anzu checks the tool",
         body: "It must be the latest published release, its hash must match and it must support your Kindle version. If not, nothing runs.",
       },
-      { title: "You choose your books", body: "Tick them in the list. The button says what is about to happen: “Unlock and convert 2 books”." },
+      { title: "You choose your books", body: "Tick them on the shelf. The button says what is about to happen: “Unlock and convert 2 books”." },
       {
         title: "Anzu unlocks, with your permission",
         body: "The Kindle app has to be closed, so Anzu asks first. Once unlocked, each book shows its real title.",
@@ -273,7 +273,7 @@ export const es: Strings = {
         title: "Anzu comprueba la herramienta",
         body: "Debe ser la última versión publicada, su hash debe coincidir y debe admitir tu versión de Kindle. Si no, no se ejecuta nada.",
       },
-      { title: "Eliges tus libros", body: "Márcalos en la lista. El botón dice qué va a pasar: «Desbloquear y convertir 2 libros»." },
+      { title: "Eliges tus libros", body: "Márcalos en la estantería. El botón dice qué va a pasar: «Desbloquear y convertir 2 libros»." },
       {
         title: "Anzu desbloquea, con tu permiso",
         body: "La app de Kindle tiene que estar cerrada, así que Anzu pregunta antes. Al desbloquearse, cada libro muestra su título real.",
