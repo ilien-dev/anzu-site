@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://anzu.pages.dev",
+  site: "https://anzu.ilien.dev",
   output: "static",
   i18n: {
     locales: ["en", "es"],
