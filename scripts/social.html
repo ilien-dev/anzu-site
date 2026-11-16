@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- Source of .github/social-preview.png, the GitHub social preview of this repository
+     (1280 x 640). Render with:
+     chrome --headless --hide-scrollbars --window-size=1280,640 --screenshot=.github/social-preview.png scripts/social.html -->
+<html lang="en">
+<meta charset="utf-8">
+<title>Anzu site social preview</title>
+<style>
+  @font-face { font-family: "JetBrains Mono"; src: url("../public/fonts/JetBrainsMono-Regular.woff2") format("woff2"); font-weight: 400; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../public/fonts/JetBrainsMono-Bold.woff2") format("woff2"); font-weight: 700; }
+  html, body { margin: 0; width: 1280px; height: 640px; overflow: hidden; }
+  body { background: #f3f5f7; color: #14171a; font-family: "JetBrains Mono", monospace; display: flex; flex-direction: column; }
+  .band { background: #14171a; color: #f3f5f7; height: 96px; display: flex; align-items: center; gap: 20px; padding: 0 88px; font-size: 30px; font-weight: 700; }
+  .band .mark { width: 52px; height: 52px; }
+  .band .sub { font-size: 20px; font-weight: 400; color: #a9b3bd; margin-left: 4px; }
+  main { flex: 1; padding: 64px 88px 0; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; }
+  h1 { font-size: 64px; line-height: 1.04; letter-spacing: -0.035em; margin: 0; }
+  h1 em { font-style: normal; color: #b25e00; }
+  p { font-size: 24px; line-height: 1.5; color: #55606b; margin: 28px 0 0; }
+  .win { background: #ffffff; border: 1px solid #cbd2d9; border-radius: 6px; box-shadow: 0 32px 64px -24px rgb(20 23 26 / 0.35); overflow: hidden; }
+  .cap { height: 34px; background: #f3f3f3; display: flex; align-items: center; padding: 0 14px; font-size: 14px; color: #1b1b1b; gap: 10px; }
+  .body { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .line { display: flex; justify-content: space-between; font-size: 17px; font-weight: 700; border-bottom: 1px solid #cbd2d9; padding-bottom: 12px; }
+  .track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; width: 132px; }
+  .track span { height: 8px; border-radius: 1px; }
+  .btn { align-self: flex-end; background: #b25e00; color: #fff; font-size: 15px; font-weight: 700; padding: 10px 14px; border-radius: 3px; margin-top: 4px; }
+  .url { position: absolute; left: 88px; bottom: 44px; font-size: 22px; color: #55606b; }
+  .url b { color: #14171a; }
+</style>
+<body>
+  <div class="band">
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+      <rect width="64" height="64" rx="14.72" fill="#ffb000"/>
+      <g transform="translate(10.88 10.88) scale(0.66)" fill="#14171a"><polygon points="32,6 10,58 20,58 32,28"/><polygon points="32,6 32,28 44,58 54,58"/><rect x="28.5" y="46" width="7" height="12"/></g>
+    </svg>
+    anzu <span class="sub">website</span>
+  </div>
+  <main>
+    <div>
+      <h1>The real app,<br>running in<br>the <em>page</em>.</h1>
+      <p>The site of Anzu, Kindle to EPUB on Windows. Astro, Tailwind and the interface compiled to WebAssembly.</p>
+    </div>
+    <div class="win">
+      <div class="cap">Anzu: Kindle to EPUB</div>
+      <div class="body">
+        <div class="line"><span>Moby-Dick</span><span class="track"><span style="background:#a63a12"></span><span style="background:#b25e00"></span><span style="background:#1f6b3a"></span></span></div>
+        <div class="line"><span>Dracula</span><span class="track"><span style="background:#a63a12"></span><span style="background:#b25e00"></span><span style="background:#cbd2d9"></span></span></div>
+        <div class="line"><span style="color:#55606b">B07XKQ9R2M</span><span class="track"><span style="background:#a63a12"></span><span style="background:#cbd2d9"></span><span style="background:#cbd2d9"></span></span></div>
+        <div class="btn">Unlock and convert 2 books</div>
+      </div>
+    </div>
+  </main>
+  <div class="url"><b>anzu.ilien.dev</b> · English and Spanish</div>
+</body>
+</html>
