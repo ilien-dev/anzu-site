@@ -1,6 +1,7 @@
 ---
 // The Anzu logo, from the same geometry as the app (crates/anzu/src/ui/mark.rs):
-// two wings that meet at the apex and a tablet, on a 64 x 64 grid.
+// two wings that meet at the apex and a tablet, on a 64 x 64 grid. Each part has its own
+// colour: a lilac wing, a peach wing and a butter tablet.
 interface Props {
   size?: number | string;
   class?: string;
@@ -21,13 +22,10 @@ const RIGHT_WING = "32,6 32,28 44,58 54,58";
   aria-label={label}
   aria-hidden={label ? undefined : "true"}
 >
-  {badge && <rect width="64" height="64" rx="14.72" fill="var(--shell-accent)" />}
-  <g
-    transform={badge ? "translate(10.88 10.88) scale(0.66)" : undefined}
-    fill={badge ? "var(--on-shell-accent)" : "currentColor"}
-  >
-    <polygon class="wing wing-left" points={LEFT_WING} />
-    <polygon class="wing wing-right" points={RIGHT_WING} />
-    <rect class="tablet" x="28.5" y="46" width="7" height="12" />
+  {badge && <rect width="64" height="64" rx="18" fill="var(--shell-chip)" />}
+  <g transform={badge ? "translate(10.88 10.88) scale(0.66)" : undefined}>
+    <polygon class="wing wing-left" points={LEFT_WING} fill="var(--unlocked)" />
+    <polygon class="wing wing-right" points={RIGHT_WING} fill="var(--drm)" />
+    <rect class="tablet" x="27" y="44" width="10" height="14" rx="2" fill="var(--butter)" />
   </g>
 </svg>

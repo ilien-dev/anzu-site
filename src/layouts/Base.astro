@@ -42,10 +42,10 @@ const jsonLd = {
     <link rel="alternate" hreflang="x-default" href={new URL("/", Astro.site)} />
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <meta name="theme-color" content="#14171a" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1c1f17" media="(prefers-color-scheme: dark)" />
+    <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/SpaceGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#15161a" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#060708" media="(prefers-color-scheme: dark)" />
     <meta property="og:title" content={t.title} />
     <meta property="og:description" content={t.description} />
     <meta property="og:type" content="website" />
@@ -66,7 +66,7 @@ const jsonLd = {
     </main>
     <footer class="bg-shell text-shell-muted">
       <div class="mx-auto flex max-w-[1240px] flex-wrap items-center gap-x-8 gap-y-4 border-t border-shell-line px-4 py-8 text-[12px] leading-[1.7] sm:px-8">
-        <span class="flex items-center gap-2.5 text-on-shell"><Mark badge size={20} />anzu</span>
+        <span class="font-display flex items-center gap-2.5 text-[15px] font-bold text-on-shell"><Mark badge size={24} />Anzu</span>
         <span class="max-w-[70ch]">{t.footer.legal} <a class="text-on-shell" href={LINKS.satsuoni}>{t.footer.satsuoni}</a>. {t.footer.trademark}</span>
         <span class="ml-auto flex gap-6">
           <span>{t.footer.license}</span>
