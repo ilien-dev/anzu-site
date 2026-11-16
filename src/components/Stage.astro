@@ -1,46 +1,16 @@
 ---
 // The real Anzu window, compiled from crates/anzu-web, inside a Windows 11 frame. The
-// frame and the strip above it are the only HTML here; everything inside the window is
-// the app drawing itself. The strip tells where the books come from and where the EPUB
-// goes, and its line passes through the window. src/scripts/demo.ts starts the window
-// and moves the strip on the demo's events.
+// frame is the only HTML here; everything inside the window is the app drawing itself.
+// src/scripts/demo.ts starts the window.
 import Mark from "./Mark.astro";
 import type { Strings } from "../i18n/strings";
 interface Props {
   t: Strings;
 }
 const { t } = Astro.props;
-const book =
-  '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v16H6.5A1.5 1.5 0 0 0 5 20.5z"/><path d="M5 20.5V4.5"/></svg>';
-const folder =
-  '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5h6l2 2h10V19H3z"/></svg>';
-const file =
-  '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/></svg>';
-const lock =
-  '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
-// Each file carries the app's three-stage track: with DRM going in, EPUB coming out.
-const track = (stage: 1 | 3) => `<span class="mini mini-${stage}" aria-hidden="true"><b></b><b></b><b></b></span>`;
 ---
 
-<figure class="stage" data-stage data-phase="idle" data-lang={t.lang}>
-  <div class="strip" aria-hidden="true">
-    <div class="tile tile-in">
-      <span class="tile-head"><Fragment set:html={book} />{t.demo.kindle}</span>
-      <span class="bar" title={t.demo.downloading}><i></i></span>
-      <span class="chip chip-in" style="--i:0"><Fragment set:html={lock} /><span class="name">B0DEMO0001_EBOK.azw</span><Fragment set:html={track(1)} /></span>
-      <span class="chip chip-in" style="--i:1"><Fragment set:html={lock} /><span class="name">B0DEMO0002_EBOK.azw</span><Fragment set:html={track(1)} /></span>
-    </div>
-    <span class="flow flow-in"><i data-dot="in"></i></span>
-    <span class="hub"><i data-dot="down"></i><i data-dot="up"></i></span>
-    <span class="flow flow-out"><i data-dot="out"></i></span>
-    <div class="tile tile-out">
-      <span class="tile-head"><Fragment set:html={folder} />{t.demo.output}</span>
-      <span class="chip chip-out kept"><Fragment set:html={file} /><span class="name">Walden.epub</span><Fragment set:html={track(3)} /></span>
-      <span class="chip chip-out" data-saved="1"><Fragment set:html={file} /><span class="name">Moby-Dick.epub</span><Fragment set:html={track(3)} /></span>
-      <span class="chip chip-out" data-saved="2"><Fragment set:html={file} /><span class="name">Pride and Prejudice.epub</span><Fragment set:html={track(3)} /></span>
-    </div>
-  </div>
-
+<figure class="stage" data-stage data-lang={t.lang}>
   <div class="window" role="img" aria-label={t.demo.label}>
     <div class="caption">
       <Mark badge size={16} />
@@ -78,190 +48,6 @@ const track = (stage: 1 | 3) => `<span class="mini mini-${stage}" aria-hidden="t
     position: relative;
     margin: 0 auto;
     max-width: 1182px;
-  }
-
-  /* The strip: Kindle app → the window → Documents\EPUB, on one line. */
-  .strip {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-    font-size: 11px;
-  }
-  .tile {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    flex: none;
-    height: 2.5rem;
-    padding: 0 0.6rem;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: var(--panel);
-    white-space: nowrap;
-    transition: border-color 0.6s var(--ease-out-expo);
-  }
-  .tile-head {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-weight: 700;
-    color: var(--fg);
-  }
-  .bar {
-    width: 3.5rem;
-    height: 3px;
-    background: var(--line);
-    border-radius: 1px;
-    overflow: hidden;
-  }
-  .bar i {
-    display: block;
-    height: 100%;
-    background: var(--fg);
-    transform-origin: left;
-    transform: scaleX(0);
-  }
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    flex: none;
-    max-width: 18rem;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-0.4rem);
-    transition:
-      opacity 0.6s var(--ease-out-expo),
-      transform 0.6s var(--ease-out-expo),
-      max-width 0.9s var(--ease-in-out-quart);
-    transition-delay: calc(var(--i, 0) * 0.18s);
-  }
-  /* Once the EPUBs come out, the Kindle files have gone through the window: they fold
-     away and leave the room to the folder that receives them. */
-  .stage.stage[data-phase="saved"] .chip-in {
-    max-width: 0;
-    opacity: 0;
-    transition-delay: 0s;
-  }
-  .chip-out:not(.kept):not(.on) {
-    max-width: 0;
-  }
-  .chip :global(svg) {
-    flex: none;
-  }
-  .chip-in {
-    color: var(--warn);
-  }
-  .chip-out {
-    color: var(--ok);
-    font-weight: 700;
-  }
-  .chip-out.kept {
-    color: var(--muted);
-    font-weight: 400;
-    opacity: 1;
-    transform: none;
-  }
-  .chip-out.on {
-    opacity: 1;
-    transform: none;
-  }
-  .name {
-    min-width: 0;
-  }
-  /* The app's track, small: three segments, filled as far as the file has come. */
-  .chip :global(.mini) {
-    flex: none;
-    display: inline-grid;
-    grid-template-columns: repeat(3, 8px);
-    gap: 2px;
-  }
-  .chip :global(.mini b) {
-    height: 4px;
-    border-radius: 1px;
-    border: 1px solid var(--line);
-  }
-  .chip :global(.mini-1 b:first-child) {
-    background: var(--warn);
-    border-color: var(--warn);
-  }
-  .chip :global(.mini-3 b) {
-    background: var(--ok);
-    border-color: var(--ok);
-  }
-
-  /* The line: from the Kindle tile into the window's caption, and out again. */
-  .flow {
-    position: relative;
-    flex: 1 1 1rem;
-    height: 1px;
-    margin: 0 0.5rem;
-    background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px);
-  }
-  /* Where the line turns down into the window's caption, and comes back out. */
-  .hub {
-    position: relative;
-    flex: none;
-    width: 2.5rem;
-    align-self: stretch;
-  }
-  .hub::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 1px;
-    background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px);
-  }
-  .hub::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    bottom: -0.75rem;
-    width: 1px;
-    background: repeating-linear-gradient(180deg, var(--line) 0 6px, transparent 6px 10px);
-  }
-  .flow i,
-  .hub i {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0;
-  }
-  .flow i {
-    top: -2px;
-    left: 0;
-  }
-  .hub i {
-    left: calc(50% - 2px);
-    top: calc(50% - 2px);
-  }
-  .hub i[data-dot="up"] {
-    background: var(--ok);
-  }
-  .flow-out i {
-    background: var(--ok);
-  }
-
-  /* Phases, set by the demo's events. */
-  .stage:not([data-phase="idle"]) .bar i {
-    transform: scaleX(1);
-    transition: transform 1.4s var(--ease-in-out-quart);
-  }
-  .stage:not([data-phase="idle"]) .chip-in {
-    opacity: 1;
-    transform: none;
-    transition-delay: calc(1.1s + var(--i) * 0.18s);
-  }
-  .stage[data-phase="download"] .tile-in {
-    border-color: var(--accent);
-  }
-  .stage[data-phase="saved"] .tile-out {
-    border-color: var(--ok);
   }
 
   /* The window: a Windows 11 frame around the canvas the app draws on. */
@@ -444,44 +230,7 @@ const track = (stage: 1 | 3) => `<span class="mini mini-${stage}" aria-hidden="t
     min-height: 500px;
   }
 
-  @media (max-width: 1100px) {
-    .strip {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 0.75rem;
-      align-items: stretch;
-    }
-    .flow,
-    .hub {
-      display: none;
-    }
-    .tile {
-      flex: initial;
-      min-width: 0;
-      height: auto;
-      min-height: 2.5rem;
-      padding: 0.6rem 0.75rem;
-      flex-wrap: wrap;
-      white-space: normal;
-    }
-    .tile-head {
-      flex-basis: 100%;
-    }
-    /* A file name stays on one line, cut short if the tile is narrow: a folded chip
-       must not wrap its name one letter per line. */
-    .chip {
-      max-width: 100%;
-      white-space: nowrap;
-    }
-    .name {
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
   @media (max-width: 560px) {
-    .strip {
-      grid-template-columns: minmax(0, 1fr);
-    }
     .caption-title {
       display: none;
     }
