@@ -20,7 +20,7 @@ export interface Strings {
   downloadLong: string;
   /** Before the number of the latest release, as in "Version 0.8.1". */
   version: string;
-  hero: { titleA: string; titleB: string; lead: string; secondary: string; facts: string[] };
+  hero: { titleA: string; titleB: string; lead: string; secondary: string; facts: { label: string; value: string }[] };
   demo: {
     label: string;
     windowTitle: string;
@@ -89,7 +89,12 @@ export const en: Strings = {
     lead:
       "Anzu is a free Windows app that converts Kindle books to EPUB. It finds the books you downloaded with the Kindle app for PC, checks the unlock tool before every run, asks before it closes anything, and writes EPUB files to the folder you choose.",
     secondary: "See how it works",
-    facts: ["Windows 10 and 11", "Free and open source, GPL-3.0", "No Calibre needed", "Novels and other text-based books, not comics"],
+    facts: [
+      { label: "Runs on", value: "Windows 10 and 11" },
+      { label: "GPL-3.0 license", value: "Free and open source" },
+      { label: "Converter", value: "Built in, no Calibre needed" },
+      { label: "Books", value: "Text-based, not comics" },
+    ],
   },
   demo: {
     label:
@@ -230,7 +235,12 @@ export const es: Strings = {
     lead:
       "Anzu es una app gratuita para Windows que convierte libros de Kindle a EPUB. Encuentra los libros que descargaste con la app de Kindle para PC, comprueba la herramienta de desbloqueo antes de cada uso, pregunta antes de cerrar nada y guarda los EPUB en la carpeta que elijas.",
     secondary: "Ver cómo funciona",
-    facts: ["Windows 10 y 11", "Libre y de código abierto, GPL-3.0", "Sin Calibre", "Novelas y otros libros de texto corrido, no cómics"],
+    facts: [
+      { label: "Funciona en", value: "Windows 10 y 11" },
+      { label: "Licencia GPL-3.0", value: "Libre y de código abierto" },
+      { label: "Conversor", value: "Propio, sin Calibre" },
+      { label: "Libros", value: "De texto corrido, no cómics" },
+    ],
   },
   demo: {
     label:
