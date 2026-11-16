@@ -35,7 +35,7 @@ const { t } = Astro.props;
             {t.hero.secondary}
           </a>
         </div>
-        <Version t={t} class="m-fade mt-3 text-muted" />
+        <Version t={t} class="m-rise mt-3 text-muted" style="--d:.6s" />
         <ul class="m-fade mt-5 flex list-none flex-wrap gap-2 p-0 text-[13px] text-muted" style="--d:.7s">
           {
             t.hero.facts.map((fact, i) => (
