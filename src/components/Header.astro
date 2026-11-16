@@ -1,0 +1,42 @@
+---
+import Mark from "./Mark.astro";
+import { LINKS, type Strings } from "../i18n/strings";
+interface Props {
+  t: Strings;
+}
+const { t } = Astro.props;
+const home = t.lang === "en" ? "/" : "/es/";
+---
+
+<header class="bg-shell text-on-shell">
+  <div class="mx-auto flex h-16 max-w-[1240px] items-center gap-6 px-4 sm:px-8">
+    <a href={home} class="m-fade flex items-center gap-3 text-on-shell no-underline" style="--d:.05s">
+      <Mark badge size={28} />
+      <span class="text-[17px] font-bold">anzu</span>
+      <span class="hidden text-[11px] text-shell-muted sm:inline">{t.demo.windowTitle.split(": ")[1]}</span>
+    </a>
+    <nav aria-label={t.nav.label} class="m-fade ml-auto hidden items-center gap-7 text-[13px] md:flex" style="--d:.15s">
+      <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#how">{t.nav.how}</a>
+      <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#where">{t.nav.where}</a>
+      <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href="#name">{t.nav.name}</a>
+      <a class="text-shell-muted no-underline transition-colors hover:text-on-shell" href={LINKS.repo}>{t.nav.github}</a>
+    </nav>
+    <a
+      class="m-fade ml-auto rounded-app border border-shell-line px-2.5 py-1.5 text-[12px] text-shell-muted no-underline transition-colors hover:border-shell-accent hover:text-on-shell md:ml-0"
+      style="--d:.22s"
+      href={t.langSwitch.otherHref}
+      hreflang={t.lang === "en" ? "es" : "en"}
+      lang={t.lang === "en" ? "es" : "en"}
+      data-lang-link
+    >
+      {t.langSwitch.other}
+    </a>
+    <a
+      class="m-fade inline-flex min-h-9 items-center rounded-app bg-shell-accent px-3.5 text-[13px] font-bold text-on-shell-accent no-underline transition-[filter,transform] duration-300 ease-out-expo hover:-translate-y-px hover:brightness-110"
+      style="--d:.3s"
+      href={LINKS.releases}
+    >
+      {t.download}
+    </a>
+  </div>
+</header>

@@ -1,0 +1,15 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "./Hero.astro";
+import Sections from "./Sections.astro";
+import type { Strings } from "../i18n/strings";
+interface Props {
+  t: Strings;
+}
+const { t } = Astro.props;
+---
+
+<Base t={t}>
+  <Hero t={t} />
+  <Sections t={t} />
+</Base>

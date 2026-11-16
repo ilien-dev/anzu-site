@@ -1,0 +1,33 @@
+---
+// The Anzu logo, from the same geometry as the app (crates/anzu/src/ui/mark.rs):
+// two wings that meet at the apex and a tablet, on a 64 x 64 grid.
+interface Props {
+  size?: number | string;
+  class?: string;
+  badge?: boolean;
+  label?: string;
+}
+const { size = 28, class: className = "", badge = false, label } = Astro.props;
+const LEFT_WING = "32,6 10,58 20,58 32,28";
+const RIGHT_WING = "32,6 32,28 44,58 54,58";
+---
+
+<svg
+  class={className}
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  role={label ? "img" : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : "true"}
+>
+  {badge && <rect width="64" height="64" rx="14.72" fill="var(--shell-accent)" />}
+  <g
+    transform={badge ? "translate(10.88 10.88) scale(0.66)" : undefined}
+    fill={badge ? "var(--on-shell-accent)" : "currentColor"}
+  >
+    <polygon class="wing wing-left" points={LEFT_WING} />
+    <polygon class="wing wing-right" points={RIGHT_WING} />
+    <rect class="tablet" x="28.5" y="46" width="7" height="12" />
+  </g>
+</svg>

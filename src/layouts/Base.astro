@@ -1,0 +1,49 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Mark from "../components/Mark.astro";
+import { LINKS, type Strings } from "../i18n/strings";
+interface Props {
+  t: Strings;
+}
+const { t } = Astro.props;
+const canonical = new URL(t.lang === "en" ? "/" : "/es/", Astro.site);
+---
+
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t.title}</title>
+    <meta name="description" content={t.description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={new URL("/", Astro.site)} />
+    <link rel="alternate" hreflang="es" href={new URL("/es/", Astro.site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#14171a" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1c1f17" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content={t.title} />
+    <meta property="og:description" content={t.description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="min-h-screen antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-app focus:bg-panel focus:px-3 focus:py-2">{t.skip}</a>
+    <Header t={t} />
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="bg-shell text-shell-muted">
+      <div class="mx-auto flex max-w-[1240px] flex-wrap items-center gap-x-8 gap-y-4 border-t border-shell-line px-4 py-8 text-[12px] leading-[1.7] sm:px-8">
+        <span class="flex items-center gap-2.5 text-on-shell"><Mark badge size={20} />anzu</span>
+        <span class="max-w-[70ch]">{t.footer.legal} <a class="text-on-shell" href={LINKS.satsuoni}>{t.footer.satsuoni}</a>.</span>
+        <span class="ml-auto flex gap-6">
+          <span>{t.footer.license}</span>
+          <a class="text-on-shell" href={LINKS.repo}>{t.footer.source}</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

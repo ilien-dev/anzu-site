@@ -1,0 +1,622 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T00:00:00Z",
+  "title": "Design System: Anzu site",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Toasted Amber",
+        "canonical": "oklch(57.0% 0.138 57.1)",
+        "tonalRamp": [
+          "#1e0100",
+          "#431500",
+          "#6b2f00",
+          "#954a00",
+          "#ba6c28",
+          "#d8935f",
+          "#f6bb91",
+          "#ffe4c3"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Console Amber",
+        "canonical": "oklch(81.2% 0.170 76.4)",
+        "tonalRamp": [
+          "#1d0200",
+          "#411800",
+          "#683300",
+          "#924f00",
+          "#b67100",
+          "#d49833",
+          "#f1c075",
+          "#ffe8af"
+        ]
+      },
+      "shell-accent": {
+        "role": "primary",
+        "displayName": "Band Amber",
+        "canonical": "oklch(81.2% 0.170 76.4)",
+        "tonalRamp": [
+          "#1d0200",
+          "#411800",
+          "#683300",
+          "#924f00",
+          "#b67100",
+          "#d49833",
+          "#f1c075",
+          "#ffe8af"
+        ]
+      },
+      "on-accent": {
+        "role": "primary",
+        "displayName": "On Toasted Amber"
+      },
+      "on-accent-dark": {
+        "role": "primary",
+        "displayName": "On Console Amber"
+      },
+      "on-shell-accent": {
+        "role": "primary",
+        "displayName": "On Band Amber"
+      },
+      "on-shell-accent-dark": {
+        "role": "primary",
+        "displayName": "On Band Amber, dark"
+      },
+      "ok": {
+        "role": "secondary",
+        "displayName": "Ledger Green",
+        "canonical": "oklch(46.9% 0.108 151.4)",
+        "tonalRamp": [
+          "#001102",
+          "#022e13",
+          "#174e2a",
+          "#2e7143",
+          "#519363",
+          "#7db48a",
+          "#a9d6b3",
+          "#d6f9dd"
+        ]
+      },
+      "ok-dark": {
+        "role": "secondary",
+        "displayName": "Ledger Green, dark",
+        "canonical": "oklch(82.5% 0.142 132.4)",
+        "tonalRamp": [
+          "#011000",
+          "#122d00",
+          "#294d00",
+          "#43700c",
+          "#639238",
+          "#8ab469",
+          "#b3d699",
+          "#ddf9c9"
+        ]
+      },
+      "warn": {
+        "role": "secondary",
+        "displayName": "Rust",
+        "canonical": "oklch(49.8% 0.150 38.3)",
+        "tonalRamp": [
+          "#220000",
+          "#490b00",
+          "#732405",
+          "#a03d1b",
+          "#c7603f",
+          "#e48a6e",
+          "#ffb49c",
+          "#ffdecb"
+        ]
+      },
+      "warn-dark": {
+        "role": "secondary",
+        "displayName": "Rust, dark",
+        "canonical": "oklch(76.6% 0.145 41.7)",
+        "tonalRamp": [
+          "#210000",
+          "#470e00",
+          "#712701",
+          "#9d4117",
+          "#c4633c",
+          "#e18c6c",
+          "#fdb69a",
+          "#ffe0ca"
+        ]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Cold Paper",
+        "canonical": "oklch(96.9% 0.003 247.9)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#242526",
+          "#414243",
+          "#606163",
+          "#818284",
+          "#a4a5a7",
+          "#c8c9ca",
+          "#edeeef"
+        ]
+      },
+      "bg-dark": {
+        "role": "neutral",
+        "displayName": "Charcoal",
+        "canonical": "oklch(16.6% 0.006 122.1)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252523",
+          "#414240",
+          "#60625e",
+          "#82837f",
+          "#a4a5a2",
+          "#c8c9c7",
+          "#eeefec"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel White"
+      },
+      "panel-dark": {
+        "role": "neutral",
+        "displayName": "Panel Charcoal"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(86.0% 0.012 248.0)",
+        "tonalRamp": [
+          "#090b0e",
+          "#222529",
+          "#3e4347",
+          "#5c6268",
+          "#7d8389",
+          "#a0a6ab",
+          "#c5cace",
+          "#ebeff2"
+        ]
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "Hairline, dark"
+      },
+      "fg": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(20.3% 0.008 248.2)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232527",
+          "#404245",
+          "#5e6265",
+          "#7f8386",
+          "#a2a5a9",
+          "#c7c9cc",
+          "#eceff1"
+        ]
+      },
+      "fg-dark": {
+        "role": "neutral",
+        "displayName": "Bone"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "oklch(48.4% 0.022 248.3)",
+        "tonalRamp": [
+          "#080c10",
+          "#20262c",
+          "#3b434b",
+          "#58636d",
+          "#79848f",
+          "#9da6b0",
+          "#c2cad2",
+          "#e9eff6"
+        ]
+      },
+      "muted-dark": {
+        "role": "neutral",
+        "displayName": "Moss Grey"
+      },
+      "shell": {
+        "role": "neutral",
+        "displayName": "Ink Band",
+        "canonical": "oklch(20.3% 0.008 248.2)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232527",
+          "#404245",
+          "#5e6265",
+          "#7f8386",
+          "#a2a5a9",
+          "#c7c9cc",
+          "#eceff1"
+        ]
+      },
+      "shell-dark": {
+        "role": "neutral",
+        "displayName": "Charcoal Band",
+        "canonical": "oklch(23.3% 0.016 124.3)",
+        "tonalRamp": [
+          "#0a0c08",
+          "#242621",
+          "#40433c",
+          "#5f635a",
+          "#80847b",
+          "#a3a69e",
+          "#c8cac3",
+          "#edefea"
+        ]
+      },
+      "on-shell": {
+        "role": "neutral",
+        "displayName": "On Band"
+      },
+      "on-shell-dark": {
+        "role": "neutral",
+        "displayName": "On Band, dark"
+      },
+      "shell-muted": {
+        "role": "neutral",
+        "displayName": "Band Muted"
+      },
+      "shell-muted-dark": {
+        "role": "neutral",
+        "displayName": "Band Muted, dark"
+      },
+      "shell-line": {
+        "role": "neutral",
+        "displayName": "Band Line"
+      },
+      "shell-line-dark": {
+        "role": "neutral",
+        "displayName": "Band Line, dark"
+      },
+      "select": {
+        "role": "neutral",
+        "displayName": "Selection Wash"
+      },
+      "select-dark": {
+        "role": "neutral",
+        "displayName": "Selection Wash, dark"
+      },
+      "caption": {
+        "role": "neutral",
+        "displayName": "Windows Caption"
+      },
+      "caption-fg": {
+        "role": "neutral",
+        "displayName": "Windows Caption Text"
+      },
+      "caption-dark": {
+        "role": "neutral",
+        "displayName": "Windows Caption, dark"
+      },
+      "caption-fg-dark": {
+        "role": "neutral",
+        "displayName": "Windows Caption Text, dark"
+      }
+    },
+    "themes": {
+      "light": "Default (:root). The -dark keys replace their base keys under prefers-color-scheme: dark; there is no manual switch.",
+      "source": "crates/anzu/src/ui/theme.rs LIGHT and DARK; caption colors are Windows 11's own."
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero headline only; the second phrase is accent."
+      },
+      "headline-closing": {
+        "displayName": "Headline, closing",
+        "purpose": "The closing band's headline, max 20ch."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every section title, text-wrap balance."
+      },
+      "path": {
+        "displayName": "Path",
+        "purpose": "The output path panel; breaks anywhere."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Step titles in the flow."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Leads and section copy, 58 to 66ch. The hero lead uses 1.7 leading and 16px from 640px."
+      },
+      "body-small": {
+        "displayName": "Body small",
+        "purpose": "Table rows, fact descriptions, secondary links."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation, quiet buttons, veil text. Primary actions are 15px bold; the wordmark 17px bold."
+      },
+      "note": {
+        "displayName": "Note",
+        "purpose": "Hero facts, figure caption, footer, language switch."
+      },
+      "micro": {
+        "displayName": "Micro",
+        "purpose": "The strip above the window, the app's small size."
+      },
+      "frame-caption": {
+        "displayName": "Windows caption (frame only)",
+        "purpose": "12px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui. Scoped to the Windows 11 frame; not a site voice."
+      }
+    },
+    "shadows": [
+      {
+        "name": "window-lift-light",
+        "value": "0 32px 64px -24px rgb(20 23 26 / 0.35), 0 2px 6px rgb(20 23 26 / 0.08)",
+        "purpose": "The app window frame only, light theme."
+      },
+      {
+        "name": "window-lift-dark",
+        "value": "0 40px 80px -28px rgb(0 0 0 / 0.75), 0 2px 8px rgb(0 0 0 / 0.4)",
+        "purpose": "The app window frame only, dark theme."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Every entrance and state transition."
+      },
+      {
+        "name": "ease-in-out-quart",
+        "value": "cubic-bezier(0.76, 0, 0.24, 1)",
+        "purpose": "Travel: the download bar, the chip fold, the dots running the strip, the loading line."
+      },
+      {
+        "name": "rise",
+        "value": "0.9s ease-out-expo, from opacity 0 and translateY(1.25rem)",
+        "purpose": "Hero lead and actions; scroll-driven .s-rise for section text (entry 0% to 55%)."
+      },
+      {
+        "name": "unveil",
+        "value": "1s ease-out-expo, clip-path inset from the bottom plus translateY(0.6em)",
+        "purpose": "The hero headline, phrase by phrase (0.1s, 0.22s)."
+      },
+      {
+        "name": "fade",
+        "value": "1.2s ease-out-expo",
+        "purpose": "Header items (staggered 0.05s to 0.3s), hero facts, the full-size layer (0.4s)."
+      },
+      {
+        "name": "window-open",
+        "value": "1.3s ease-out-expo, from opacity 0, translateY(3rem), scale(0.965)",
+        "purpose": "The app window, at 0.55s."
+      },
+      {
+        "name": "slide-in",
+        "value": "scroll-driven, from opacity 0 and translateX(-1.5rem), entry 10% to 70%",
+        "purpose": "Table rows and flow steps."
+      },
+      {
+        "name": "draw-y",
+        "value": "scroll-driven scaleY from 0, entry 25% to exit 55%",
+        "purpose": "The flow spine."
+      },
+      {
+        "name": "fill",
+        "value": "scroll-driven scaleX from 0, staggered per stage",
+        "purpose": "The three track bars, one after another."
+      },
+      {
+        "name": "type",
+        "value": "scroll-driven, from opacity 0, translateX(-0.75rem), blur(3px), staggered per segment",
+        "purpose": "The output path, segment by segment."
+      },
+      {
+        "name": "wing",
+        "value": "scroll-driven, wings from rotate(+-16deg) scaleX(0.55); tablet rises 8px",
+        "purpose": "The logo assembling in the name section."
+      },
+      {
+        "name": "strip-dot-run",
+        "value": "700ms ease-in-out-quart, fade in by 15% and out from 85%",
+        "purpose": "A dot travelling a strip line; one clone per run so overlaps stay visible."
+      },
+      {
+        "name": "strip-chip-stagger",
+        "value": "0.18s per chip; chip reveal 0.6s; fold 0.9s ease-in-out-quart",
+        "purpose": "Chips entering and folding away on demo events."
+      },
+      {
+        "name": "download-bar",
+        "value": "1.4s ease-in-out-quart",
+        "purpose": "The Kindle tile's bar filling on the download event."
+      },
+      {
+        "name": "hover-lift",
+        "value": "300ms ease-out-expo, translateY(-2px) (header -1px), brightness(1.1)",
+        "purpose": "Primary actions."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition durations 1ms, delays 0, one iteration; smooth scroll off; the window waits for Play",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px",
+        "purpose": "Gutters 32px, section padding up, hero lead 16px, step dot position, two-column steps and facts."
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "purpose": "Header navigation shown; name section two-column."
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "purpose": "Hero copy row and the who-does-what section two-column."
+      },
+      {
+        "name": "strip-grid",
+        "value": "max-width 1100px",
+        "purpose": "Strip loses its flow lines and hub; tiles become a two-column wrapping grid."
+      },
+      {
+        "name": "strip-stack",
+        "value": "max-width 560px",
+        "purpose": "Strip one column; window caption title hidden."
+      },
+      {
+        "name": "window-small",
+        "value": "scale < 0.75 (viewport under about 885px)",
+        "purpose": "JS sets data-small; the full-size button appears."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Download for Windows on content ground: accent fill, 48px, 3px corners.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v11\"/><path d=\"m7 10 5 5 5-5\"/><path d=\"M5 20h14\"/></svg>Download for Windows</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 20px; border-radius: 3px; background: var(--accent, #b25e00); color: var(--on-accent, #ffffff); font: 700 15px \"JetBrains Mono\", ui-monospace, Consolas, monospace; text-decoration: none; transition: filter 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { transform: translateY(-2px); filter: brightness(1.1); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #b25e00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Band Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary-band",
+      "description": "The primary action on the ink band (closing band; compact form in the header).",
+      "html": "<div class=\"ds-band\"><a class=\"ds-btn-band\" href=\"#\">Download</a></div>",
+      "css": ".ds-band { background: var(--shell, #14171a); padding: 24px; } .ds-btn-band { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 3px; background: var(--shell-accent, #ffb000); color: var(--on-shell-accent, #14171a); font: 700 15px \"JetBrains Mono\", ui-monospace, Consolas, monospace; text-decoration: none; transition: filter 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-band:hover { transform: translateY(-2px); filter: brightness(1.1); } .ds-btn-band:focus-visible { outline: 2px solid var(--accent, #b25e00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Link",
+      "kind": "button",
+      "refersTo": "link-secondary",
+      "description": "The secondary action: underlined text, line-colored underline turning accent.",
+      "html": "<a class=\"ds-link-secondary\" href=\"#\">See how it works</a>",
+      "css": ".ds-link-secondary { font: 400 14px \"JetBrains Mono\", ui-monospace, Consolas, monospace; color: var(--fg, #14171a); text-decoration: underline; text-decoration-color: var(--line, #cbd2d9); text-decoration-thickness: 1px; text-underline-offset: 0.22em; transition: text-decoration-color 150ms; } .ds-link-secondary:hover { text-decoration-color: var(--accent, #b25e00); } .ds-link-secondary:focus-visible { outline: 2px solid var(--accent, #b25e00); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Panel button with a hairline border: full size and its close.",
+      "html": "<button type=\"button\" class=\"ds-btn-quiet\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5\"/></svg>Full size</button>",
+      "css": ".ds-btn-quiet { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; font: 400 13px \"JetBrains Mono\", ui-monospace, Consolas, monospace; color: var(--fg, #14171a); background: var(--panel, #ffffff); border: 1px solid var(--line, #cbd2d9); border-radius: 3px; cursor: pointer; } .ds-btn-quiet:focus-visible { outline: 2px solid var(--accent, #b25e00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Header Band",
+      "kind": "nav",
+      "refersTo": "header-band",
+      "description": "Ink band header: badge and wordmark, muted links, outlined language switch, compact Download.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-brand\" href=\"#\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 64 64\" aria-hidden=\"true\"><rect width=\"64\" height=\"64\" rx=\"14.72\" fill=\"#ffb000\"/><g transform=\"translate(10.88 10.88) scale(0.66)\" fill=\"#14171a\"><polygon points=\"32,6 10,58 20,58 32,28\"/><polygon points=\"32,6 32,28 44,58 54,58\"/><rect x=\"28.5\" y=\"46\" width=\"7\" height=\"12\"/></g></svg>anzu</a><nav class=\"ds-nav\"><a href=\"#\">How it works</a><a href=\"#\">Where</a><a href=\"#\">GitHub</a></nav><a class=\"ds-lang\" href=\"#\">ES</a><a class=\"ds-btn-header\" href=\"#\">Download</a></header>",
+      "css": ".ds-header { display: flex; align-items: center; gap: 24px; height: 64px; padding: 0 32px; background: var(--shell, #14171a); color: var(--on-shell, #f3f5f7); font-family: \"JetBrains Mono\", ui-monospace, Consolas, monospace; } .ds-brand { display: flex; align-items: center; gap: 12px; color: var(--on-shell, #f3f5f7); font-size: 17px; font-weight: 700; text-decoration: none; } .ds-nav { margin-left: auto; display: flex; gap: 28px; font-size: 13px; } .ds-nav a { color: var(--shell-muted, #a9b3bd); text-decoration: none; transition: color 150ms; } .ds-nav a:hover { color: var(--on-shell, #f3f5f7); } .ds-lang { padding: 6px 10px; border: 1px solid var(--shell-line, #3a424a); border-radius: 3px; font-size: 12px; color: var(--shell-muted, #a9b3bd); text-decoration: none; transition: color 150ms, border-color 150ms; } .ds-lang:hover { border-color: var(--shell-accent, #ffb000); color: var(--on-shell, #f3f5f7); } .ds-btn-header { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 3px; background: var(--shell-accent, #ffb000); color: var(--on-shell-accent, #14171a); font-size: 13px; font-weight: 700; text-decoration: none; transition: filter 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-header:hover { transform: translateY(-1px); filter: brightness(1.1); } .ds-header a:focus-visible { outline: 2px solid var(--accent, #b25e00); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Strip Tile with Chips",
+      "kind": "chip",
+      "refersTo": "strip-tile",
+      "description": "A tile of the strip with incoming locked chips and an outgoing EPUB chip, each carrying the mini track. The border turns accent in the download phase (shown as .is-active), ok when saved; tiles have no hover state.",
+      "html": "<div class=\"ds-tile\"><span class=\"ds-tile-head\">Kindle</span><span class=\"ds-chip ds-chip-in\">B0DEMO0001_EBOK.azw<span class=\"ds-mini ds-mini-1\"><b></b><b></b><b></b></span></span><span class=\"ds-chip ds-chip-out\">Walden.epub<span class=\"ds-mini ds-mini-3\"><b></b><b></b><b></b></span></span></div>",
+      "css": ".ds-tile { display: inline-flex; align-items: center; gap: 9px; height: 40px; padding: 0 10px; border: 1px solid var(--line, #cbd2d9); border-radius: 3px; background: var(--panel, #ffffff); font: 400 11px \"JetBrains Mono\", ui-monospace, Consolas, monospace; white-space: nowrap; transition: border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1); } .ds-tile.is-active { border-color: var(--accent, #b25e00); } .ds-tile-head { font-weight: 700; color: var(--fg, #14171a); } .ds-chip { display: inline-flex; align-items: center; gap: 6px; } .ds-chip-in { color: var(--warn, #a63a12); } .ds-chip-out { color: var(--ok, #1f6b3a); font-weight: 700; } .ds-mini { display: inline-grid; grid-template-columns: repeat(3, 8px); gap: 2px; } .ds-mini b { height: 4px; border-radius: 1px; border: 1px solid var(--line, #cbd2d9); } .ds-mini-1 b:first-child { background: var(--warn, #a63a12); border-color: var(--warn, #a63a12); } .ds-mini-3 b { background: var(--ok, #1f6b3a); border-color: var(--ok, #1f6b3a); }"
+    },
+    {
+      "name": "Windows 11 Frame",
+      "kind": "custom",
+      "refersTo": "window-frame",
+      "description": "The HTML frame around the real app canvas: 8px corners, the one shadow, a 32px Segoe UI caption.",
+      "html": "<div class=\"ds-window\"><div class=\"ds-caption\"><span>Anzu: Kindle to EPUB</span><span class=\"ds-caption-buttons\"><span><svg width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" aria-hidden=\"true\"><path d=\"M0 5.5h10\" stroke=\"currentColor\"/></svg></span><span><svg width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" aria-hidden=\"true\"><rect x=\".5\" y=\".5\" width=\"9\" height=\"9\" rx=\"1\" fill=\"none\" stroke=\"currentColor\"/></svg></span><span><svg width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" aria-hidden=\"true\"><path d=\"M.5.5l9 9M9.5.5l-9 9\" stroke=\"currentColor\"/></svg></span></span></div><div class=\"ds-viewport\"><span class=\"ds-veil\">Loading the window</span></div></div>",
+      "css": ".ds-window { width: 360px; border: 1px solid var(--line, #cbd2d9); border-radius: 8px; overflow: hidden; background: var(--caption, #f3f3f3); box-shadow: 0 32px 64px -24px rgb(20 23 26 / 0.35), 0 2px 6px rgb(20 23 26 / 0.08); } .ds-caption { display: flex; align-items: center; height: 32px; padding-left: 12px; color: var(--caption-fg, #1b1b1b); font: 12px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif; } .ds-caption-buttons { margin-left: auto; display: flex; height: 100%; } .ds-caption-buttons span { width: 46px; display: grid; place-items: center; } .ds-viewport { aspect-ratio: 1180 / 760; background: var(--bg, #f3f5f7); display: grid; place-items: center; } .ds-veil { color: var(--muted, #55606b); font: 13px \"JetBrains Mono\", ui-monospace, Consolas, monospace; } .ds-veil::after { content: \"\"; display: block; height: 2px; margin-top: 12px; background: var(--accent, #b25e00); }"
+    },
+    {
+      "name": "Three-Stage Track",
+      "kind": "custom",
+      "refersTo": "track",
+      "description": "DRM, unlocked, EPUB in warn, accent, ok: bordered 10px bars with bold 12px labels.",
+      "html": "<div class=\"ds-track\"><div><div class=\"ds-bar\"><i style=\"background: var(--warn, #a63a12)\"></i></div><span style=\"color: var(--warn, #a63a12)\">With DRM</span></div><div><div class=\"ds-bar\"><i style=\"background: var(--accent, #b25e00)\"></i></div><span style=\"color: var(--accent, #b25e00)\">Unlocked</span></div><div><div class=\"ds-bar\"><i style=\"background: var(--ok, #1f6b3a)\"></i></div><span style=\"color: var(--ok, #1f6b3a)\">EPUB</span></div></div>",
+      "css": ".ds-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font: 700 12px \"JetBrains Mono\", ui-monospace, Consolas, monospace; } .ds-bar { height: 10px; overflow: hidden; border: 1px solid var(--line, #cbd2d9); border-radius: 2px; margin-bottom: 12px; } .ds-bar i { display: block; height: 100%; transform-origin: left; }"
+    },
+    {
+      "name": "Path Panel",
+      "kind": "card",
+      "refersTo": "path-panel",
+      "description": "The output path: muted segments on a panel, the final EPUB in ok.",
+      "html": "<p class=\"ds-path\"><span>Documents\\</span><span>EPUB\\</span><span class=\"ds-path-file\">Walden.epub</span></p>",
+      "css": ".ds-path { display: flex; flex-wrap: wrap; align-items: center; padding: 24px 32px; border: 1px solid var(--line, #cbd2d9); border-radius: 3px; background: var(--panel, #ffffff); color: var(--muted, #55606b); font: 700 clamp(1rem, 2.3vw, 1.75rem) \"JetBrains Mono\", ui-monospace, Consolas, monospace; word-break: break-all; } .ds-path-file { margin-left: 4px; color: var(--ok, #1f6b3a); }"
+    },
+    {
+      "name": "Flow Step with Spine",
+      "kind": "custom",
+      "refersTo": "flow-step",
+      "description": "A step of the flow: ring dot in its stage color on a three-color spine, bold title and muted body, hairline below.",
+      "html": "<ol class=\"ds-flow\"><span class=\"ds-spine\"></span><li class=\"ds-step\" style=\"--dot: var(--warn, #a63a12)\"><h3>Kindle downloads the book</h3><p>Through your own Kindle app.</p></li><li class=\"ds-step\" style=\"--dot: var(--ok, #1f6b3a)\"><h3>The EPUB lands</h3><p>In Documents\\EPUB.</p></li></ol>",
+      "css": ".ds-flow { position: relative; list-style: none; margin: 0; padding-left: 56px; font-family: \"JetBrains Mono\", ui-monospace, Consolas, monospace; } .ds-spine { position: absolute; top: 8px; bottom: 8px; left: 10px; width: 3px; border-radius: 9999px; background: linear-gradient(var(--warn, #a63a12) 0 58%, var(--accent, #b25e00) 58% 79%, var(--ok, #1f6b3a) 79% 100%); } .ds-step { position: relative; padding: 28px 0; border-bottom: 1px solid var(--line, #cbd2d9); } .ds-step::before { content: \"\"; position: absolute; left: -51px; top: 34px; width: 13px; height: 13px; border-radius: 50%; background: var(--bg, #f3f5f7); border: 2px solid var(--dot, var(--accent, #b25e00)); } .ds-step h3 { margin: 0 0 12px; font-size: 19px; font-weight: 700; letter-spacing: -0.015em; color: var(--fg, #14171a); } .ds-step p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--muted, #55606b); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Amber console",
+    "overview": "The site is the app's own world, not a marketing skin over it. Every voice is JetBrains Mono, the same two weights the app ships; the palette is the app's two palettes token for token (`crates/anzu/src/ui/theme.rs`), \"Cold paper\" in light and charcoal in dark, switched by the system preference alone. Surfaces are flat panels on a cool or charcoal ground, divided by 1 px lines and nearly square 3 px corners. Amber is the only accent and it is spent sparingly: the primary action, the logo badge, thin lines and running dots, one phrase of the headline.\n\nThe page has one object of weight, the real Anzu window compiled to WebAssembly, inside an HTML Windows 11 frame. It is the only lifted thing on the page and the only place the site borrows another system's look (the Windows caption). Around it the app's three-stage track (DRM, unlocked, EPUB in warn, accent and ok) is the recurring device: it marks the files in the strip above the window, runs down the flow section as its spine, and closes the page as three filled bars.\n\nThe page is framed top and bottom by the ink band, dark in both themes, as the app's own header is. Motion is entrance and narration, never ambience: each element arrives once through one of a few named movements, and the strip above the window moves only when the running app reports an event.",
+    "keyCharacteristics": [
+      "One family, JetBrains Mono 400 and 700, tabular numerals everywhere.",
+      "Ink band header and closing band in both themes; content between them on bg with panel surfaces.",
+      "3 px corners and 1 px lines; the 8 px Windows 11 frame is the only rounder shape.",
+      "One shadow in the whole system, under the window.",
+      "The three-stage track in warn, accent, ok as the signature device.",
+      "Motion arrives once and is tied to what the element is."
+    ],
+    "rules": [
+      {
+        "name": "The App Palette Rule",
+        "body": "The site's colors are the app's palette. A new color enters the site only after it enters `theme.rs`.",
+        "section": "colors"
+      },
+      {
+        "name": "The Small Amber Rule",
+        "body": "Amber is never a ground or a large surface. It fills only the primary action, the small logo badge tile and the logo mark itself at any size; everywhere else it is a line, a dot, a ring or a phrase of text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Track Colors Rule",
+        "body": "Warn means \"still locked\" and ok means \"EPUB\"; neither carries any other meaning on the site. Inside a track, accent stands for the unlocked stage; outside a track it keeps its accent roles.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Every site voice is JetBrains Mono at 400 or 700. No second family, no other weights. The Segoe UI in the window caption belongs to the Windows frame, not to the site.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Shouting Rule",
+        "body": "No uppercase labels and no wide letter-spacing; tracking only ever tightens, and only on bold sizes.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Lifted Object Rule",
+        "body": "Only the app window casts a shadow. Panels, tiles, buttons and bands stay flat; hover lifts a primary action by 1 to 2 px of translation, not by shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do take every color from the app's palette, in both themes, with the ink band dark in both.",
+      "Do keep JetBrains Mono at 400 and 700 as the only family, tightening tracking (-0.015em to -0.035em) only on bold sizes.",
+      "Do use 3px corners and 1px lines for every site surface; reserve 8px for the Windows frame.",
+      "Do keep the window at its real 1180 x 760 size where it fits and scale it as a whole below that, with a full-size view when it drops under 0.75.",
+      "Do bring each element in once, through rise, unveil, fade, window-open, draw or slide-in, on the expo-out curve; tie scroll entrances to the section kind.",
+      "Do keep content visible without animation support and let reduced motion skip time-based entrances and wait for Play before starting the window.",
+      "Do size primary actions at 48px (36px for the compact header Download), button controls around the window at 44px, and keep the 2px accent focus ring on everything focusable."
+    ],
+    "donts": [
+      "Don't build an HTML lookalike of the app's interface; the window is the app itself.",
+      "Don't fill a ground or a large surface with amber; it fills only the primary action, the badge tile and the logo mark.",
+      "Don't add shadows beyond the window's.",
+      "Don't use warn or ok for anything but the locked and EPUB stages of a book.",
+      "Don't use uppercase labels, wide letter-spacing or a second typeface on the site.",
+      "Don't add motion that loops for its own sake; the only repeating movements are the loading line and the strip, which follows the app."
+    ]
+  }
+}
