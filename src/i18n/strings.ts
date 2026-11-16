@@ -22,10 +22,7 @@ export interface Strings {
   demo: {
     label: string;
     windowTitle: string;
-    kindle: string;
-    downloading: string;
     contentFolder: string;
-    output: string;
     play: string;
     loading: string;
     failed: string;
@@ -95,10 +92,7 @@ export const en: Strings = {
     label:
       "The real Anzu window, running a recorded session: two books are downloaded in the Kindle app, Anzu checks the tool, the books are chosen, Anzu asks to close Kindle, unlocks and converts them, and saves them in Documents\\EPUB.",
     windowTitle: "Anzu: Kindle to EPUB",
-    kindle: "Kindle app",
-    downloading: "Downloading 2 books",
     contentFolder: "My Kindle Content",
-    output: "Documents\\EPUB",
     play: "Play the demo",
     loading: "Opening Anzu",
     failed: "The demo needs WebGL, which this browser does not offer.",
@@ -238,10 +232,7 @@ export const es: Strings = {
     label:
       "La ventana real de Anzu reproduciendo una sesión: se descargan dos libros en la app de Kindle, Anzu comprueba la herramienta, se eligen los libros, Anzu pide cerrar Kindle, los desbloquea y convierte, y los guarda en Documents\\EPUB.",
     windowTitle: "Anzu: de Kindle a EPUB",
-    kindle: "App de Kindle",
-    downloading: "Descargando 2 libros",
     contentFolder: "My Kindle Content",
-    output: "Documents\\EPUB",
     play: "Reproducir el demo",
     loading: "Abriendo Anzu",
     failed: "El demo necesita WebGL, y este navegador no lo ofrece.",
