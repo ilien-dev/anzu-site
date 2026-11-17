@@ -245,6 +245,49 @@ a {
   animation-delay: var(--d, 0s);
 }
 
+/* The download buttons rise, take a soft shadow of their own colour, open the four panes
+   of their icon a little, and settle back when pressed. Tailwind moves with the `translate`
+   property, so that is what transitions here, not `transform`. */
+.btn-lift {
+  transition:
+    translate 0.45s var(--ease-out-expo),
+    box-shadow 0.45s var(--ease-out-expo),
+    filter 0.3s ease-out;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.12);
+}
+.btn-lift rect {
+  transition: transform 0.5s var(--ease-out-expo);
+}
+@media (hover: hover) {
+  .btn-lift:hover {
+    translate: 0 calc(var(--lift, 3px) * -1);
+    filter: brightness(1.05);
+    box-shadow:
+      0 14px 28px -12px color-mix(in srgb, var(--glow, var(--accent)) 60%, transparent),
+      0 2px 0 rgb(0 0 0 / 0.14);
+  }
+  .btn-lift:hover rect:nth-child(1) {
+    transform: translate(-1.4px, -1.4px);
+  }
+  .btn-lift:hover rect:nth-child(2) {
+    transform: translate(1.4px, -1.4px);
+    transition-delay: 0.04s;
+  }
+  .btn-lift:hover rect:nth-child(3) {
+    transform: translate(-1.4px, 1.4px);
+    transition-delay: 0.08s;
+  }
+  .btn-lift:hover rect:nth-child(4) {
+    transform: translate(1.4px, 1.4px);
+    transition-delay: 0.12s;
+  }
+}
+.btn-lift:active {
+  translate: 0 0;
+  transition-duration: 0.12s;
+  box-shadow: 0 4px 10px -6px color-mix(in srgb, var(--glow, var(--accent)) 55%, transparent);
+}
+
 /* Scroll-driven entrances, one kind per section. */
 @supports (animation-timeline: view()) {
   .s-rise {
@@ -291,10 +334,17 @@ a {
   .s-rule,
   .s-spine,
   .s-fade,
-  .track-fill,
   .path .seg,
+  .path .file,
+  .path .stamp,
+  .fact,
   .name-mark .wing,
   .name-mark .tablet {
     animation: none !important;
+  }
+  .btn-lift:hover,
+  .btn-lift:hover rect {
+    translate: none !important;
+    transform: none !important;
   }
 }
