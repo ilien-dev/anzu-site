@@ -27,6 +27,17 @@ const jsonLd = {
   image: ogImage.href,
   sameAs: [LINKS.repo],
 };
+// The questions of the page, word for word, so search engines can match them to queries.
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: t.htmlLang,
+  mainEntity: t.faq.items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
 ---
 
 <!doctype html>
@@ -57,6 +68,7 @@ const jsonLd = {
     <meta property="og:image:height" content="640" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   </head>
   <body class="min-h-screen antialiased">
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-app focus:bg-panel focus:px-3 focus:py-2">{t.skip}</a>
