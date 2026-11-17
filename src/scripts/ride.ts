@@ -43,7 +43,12 @@ function ride(list: HTMLElement): () => void {
 
     const first = dots[0]!;
     const last = dots[dots.length - 1]!;
-    const y = first + (last - first) * clamp(p / TRAVEL);
+    // The book never goes lower than END_MARGIN above the bottom of the window: while the
+    // list is still coming in, it waits at that line instead of riding off screen.
+    const lowest = innerHeight - END_MARGIN - token.offsetHeight / 2 - list.getBoundingClientRect().top;
+    const y = Math.max(first, Math.min(first + (last - first) * clamp(p / TRAVEL), lowest));
+    // Before even the first step fits above that line, the book stays out of sight.
+    token.style.opacity = lowest >= first ? "1" : "0";
     token.style.translate = `0 ${y - token.offsetHeight / 2}px`;
     // Clipped rather than scaled, so each colour of the spine stays beside its own steps.
     const shown = clamp((y - spine.offsetTop) / spine.offsetHeight);
