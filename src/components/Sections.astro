@@ -11,6 +11,14 @@ const trackColors = ["var(--drm)", "var(--unlocked)", "var(--epub)"];
 // Where each step leaves the book on the track: downloading, checking and choosing
 // happen while it still has DRM; then it is unlocked, then it is an EPUB.
 const stepStage = [0, 0, 0, 1, 2];
+// One tint and one icon per fact of `t.where.facts`: folder, Kindle folder, marked, reader.
+const FACT_TINTS = ["var(--info)", "var(--drm)", "var(--unlocked)", "var(--epub)"];
+const FACT_ICONS = [
+  '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />',
+  '<path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z" />',
+  '<path d="M4 12a8 8 0 0 1 14-5.3L20 9" /><path d="M20 4v5h-5" /><path d="M20 12a8 8 0 0 1-14 5.3L4 15" /><path d="M4 20v-5h5" />',
+  '<rect x="6" y="3" width="12" height="18" rx="2" /><path d="M10 18h4" />',
+];
 ---
 
 <section id="what" class="border-t border-line" aria-labelledby="what-title">
@@ -49,7 +57,7 @@ const stepStage = [0, 0, 0, 1, 2];
         t.how.track.map((label, i) => (
           <div>
             <div class="h-3 overflow-clip rounded-full bg-quiet">
-              <div class="track-fill h-full rounded-full" style={`background:${trackColors[i]};--n:${i}`} />
+              <div class="track-fill h-full rounded-full" data-bar style={`background:${trackColors[i]}`} />
             </div>
             <div class="mt-3 inline-flex items-center gap-2 text-[13px] font-semibold text-fg">
               <span class="size-3 rounded-[4px]" style={`background:${trackColors[i]}`} />
@@ -60,11 +68,18 @@ const stepStage = [0, 0, 0, 1, 2];
       }
     </div>
 
-    <ol class="relative mt-14 list-none pl-10 sm:pl-14">
-      <span class="spine s-spine absolute top-2 bottom-2 left-[6px] w-[3px] rounded-full sm:left-[10px]" aria-hidden="true"></span>
+    <ol class="ride relative mt-14 list-none pl-10 sm:pl-14" data-ride>
+      <span class="rail absolute top-2 bottom-2 left-[6px] w-[3px] rounded-full bg-line sm:left-[10px]" aria-hidden="true"></span>
+      <span class="spine absolute top-2 bottom-2 left-[6px] w-[3px] rounded-full sm:left-[10px]" data-spine aria-hidden="true"></span>
+      <!-- The book itself rides the spine as the list scrolls into view, coloured by its stage. -->
+      <span class="token absolute top-0 left-[7.5px] grid h-7 w-9 place-items-center rounded-[9px] text-ink sm:left-[11.5px]" data-token data-stage="0" aria-hidden="true">
+        <svg class="ic-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>
+        <svg class="ic-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 7.5-1.9" /></svg>
+        <svg class="ic-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z" /><path d="M15 3v4h4" /></svg>
+      </span>
       {
         t.how.steps.map((step, i) => (
-          <li style={`--dot:${trackColors[stepStage[i]!]}`} class="step s-row relative grid gap-3 border-b border-line py-7 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] sm:gap-10">
+          <li style={`--dot:${trackColors[stepStage[i]!]}`} data-stage={stepStage[i]} class="step relative grid gap-3 border-b border-line py-7 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] sm:gap-10">
             <h3 class="text-[19px] leading-snug font-bold tracking-[-0.015em]">{step.title}</h3>
             <p class="text-[15px] leading-[1.7] text-muted">{step.body}</p>
           </li>
@@ -74,22 +89,30 @@ const stepStage = [0, 0, 0, 1, 2];
   </div>
 </section>
 
-<section id="where" class="border-t border-line" aria-labelledby="where-title">
+<section id="where" class="where border-t border-line" aria-labelledby="where-title">
   <div class="mx-auto max-w-[1240px] px-4 py-24 sm:px-8 sm:py-32">
     <h2 id="where-title" class="s-rise text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.1] font-bold tracking-[-0.03em] text-balance">{t.where.title}</h2>
     <p class="s-rise mt-4 max-w-[60ch] text-[15px] leading-[1.75] text-muted">{t.where.lead}</p>
     <p class="path mt-10 flex flex-wrap items-center gap-y-2 rounded-card border border-line bg-panel px-5 py-6 font-mono text-[clamp(1rem,2.3vw,1.75rem)] font-bold break-all sm:px-8">
-      {t.where.path.map((part, i) => <span class="seg text-muted" style={`--n:${i}`}>{part}</span>)}
-      <span class="seg ml-2 inline-flex items-center gap-3 rounded-[12px] bg-epub px-3 py-1 text-ink" style={`--n:${t.where.path.length}`}>
+      {t.where.path.map((part, i) => <span class={`seg ${i === t.where.path.length - 1 ? "dest" : ""} text-muted`} style={`--n:${i}`}>{part}</span>)}
+      <span class="file relative ml-2 inline-flex items-center gap-3 rounded-[12px] bg-epub px-3 py-1 text-ink">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z" /><path d="M15 3v4h4" /></svg>
         {t.where.file}
+        <span class="stamp absolute -top-3 -right-3 grid size-6 place-items-center rounded-full bg-fg text-bg" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
+        </span>
       </span>
     </p>
-    <dl class="mt-10 grid gap-x-12 sm:grid-cols-2">
+    <dl class="facts mt-10 grid gap-x-12 sm:grid-cols-2">
       {
-        t.where.facts.map((fact) => (
-          <div class="s-rise border-t border-line py-5">
-            <dt class="text-[15px] font-bold">{fact.title}</dt>
+        t.where.facts.map((fact, i) => (
+          <div class="fact relative border-t border-line py-5 pl-12" style={`--n:${i}`}>
+            <dt class="text-[15px] font-bold">
+              <span class="absolute top-5 left-0 grid size-8 place-items-center rounded-[10px] text-ink" style={`background:${FACT_TINTS[i % 4]}`} aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={FACT_ICONS[i % 4]} />
+              </span>
+              {fact.title}
+            </dt>
             <dd class="mt-1.5 text-[14px] leading-[1.65] text-muted">{fact.body}</dd>
           </div>
         ))
@@ -162,7 +185,7 @@ const stepStage = [0, 0, 0, 1, 2];
     <div class="s-rise mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
       <a
         href={LINKS.releases}
-        class="font-display inline-flex min-h-13 items-center gap-3 rounded-[14px] bg-shell-accent px-6 text-[16px] font-bold text-on-shell-accent no-underline transition-[filter,transform] duration-300 ease-out-expo hover:-translate-y-0.5 hover:brightness-105"
+        class="font-display inline-flex min-h-13 items-center gap-3 rounded-[14px] bg-shell-accent px-6 text-[16px] font-bold text-on-shell-accent no-underline btn-lift" style="--glow:var(--shell-accent)"
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <rect x="3" y="3" width="8.4" height="8.4" rx="0.6" /><rect x="12.6" y="3" width="8.4" height="8.4" rx="0.6" /><rect x="3" y="12.6" width="8.4" height="8.4" rx="0.6" /><rect x="12.6" y="12.6" width="8.4" height="8.4" rx="0.6" />
@@ -203,31 +226,155 @@ const stepStage = [0, 0, 0, 1, 2];
     }
   }
 
-  /* The track fills as it is read: one stage after the other. */
+  /* The book rides the spine: scripts/ride.ts moves it with the scroll, so that it reaches
+     the last step when the list is centred in the window. Without the script the whole
+     track shows, full. */
   .track-fill {
     transform-origin: left;
+    transition: transform 0.35s var(--ease-out-expo);
+  }
+  .spine {
+    transition: clip-path 0.35s var(--ease-out-expo);
+  }
+  .token {
+    display: none;
+    margin-left: -18px;
+    background: var(--drm);
+    box-shadow: 0 6px 14px -6px rgb(21 22 26 / 0.35);
+    z-index: 1;
+    transition:
+      translate 0.35s var(--ease-out-expo),
+      background-color 0.3s ease-out;
+  }
+  .token svg {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transition: opacity 0.25s ease-out;
+  }
+  .token[data-stage="0"] .ic-0,
+  .token[data-stage="1"] .ic-1,
+  .token[data-stage="2"] .ic-2 {
+    opacity: 1;
+  }
+  .token[data-stage="1"] {
+    background: var(--unlocked);
+  }
+  .token[data-stage="2"] {
+    background: var(--epub);
+  }
+  .ride[data-on] .token {
+    display: grid;
+  }
+  .step h3,
+  .step::before {
+    transition:
+      color 0.3s ease-out,
+      background-color 0.3s ease-out;
+  }
+  .ride[data-on] .step:not([data-lit]) h3 {
+    color: var(--muted);
+  }
+  .ride[data-on] .step:not([data-lit])::before {
+    background: var(--bg);
+  }
+
+  /* The EPUB is saved: the path is typed, its last folder turns to ink, then the file
+     drops in, glows and takes its check, and the facts follow. All of it is done by the
+     time the path, or the facts, sit in the middle of the window. */
+  .where {
+    timeline-scope: --path, --facts;
   }
   @supports (animation-timeline: view()) {
-    .track-fill {
-      animation: fill linear both;
-      animation-timeline: view();
-      animation-range: entry calc(30% + var(--n) * 18%) cover calc(42% + var(--n) * 8%);
+    .path {
+      view-timeline: --path block;
     }
-    @keyframes fill {
-      from {
-        transform: scaleX(0);
-      }
+    .facts {
+      view-timeline: --facts block;
     }
     .path .seg {
       animation: type linear both;
-      animation-timeline: view();
-      animation-range: entry calc(40% + var(--n) * 7%) cover calc(30% + var(--n) * 3%);
+      animation-timeline: --path;
+      animation-range: cover calc(4% + var(--n) * 4%) cover calc(14% + var(--n) * 4%);
+    }
+    .path .dest {
+      animation:
+        type linear both,
+        ink linear both;
+      animation-timeline: --path, --path;
+      animation-range:
+        cover calc(4% + var(--n) * 4%) cover calc(14% + var(--n) * 4%),
+        cover 30% cover 34%;
+    }
+    .path .file {
+      animation:
+        drop linear both,
+        glow linear both;
+      animation-timeline: --path, --path;
+      animation-range:
+        cover 32% cover 42%,
+        cover 40% cover 50%;
+    }
+    .path .stamp {
+      animation: stamp linear both;
+      animation-timeline: --path;
+      animation-range: cover 42% cover 47%;
+    }
+    .fact {
+      animation: rise linear both;
+      animation-timeline: --facts;
+      animation-range: cover calc(12% + var(--n) * 6%) cover calc(30% + var(--n) * 6%);
     }
     @keyframes type {
       from {
         opacity: 0;
         transform: translateX(-0.75rem);
         filter: blur(3px);
+      }
+    }
+    @keyframes ink {
+      to {
+        color: var(--fg);
+      }
+    }
+    @keyframes drop {
+      0% {
+        opacity: 0;
+        translate: 0 -2.5rem;
+        scale: 0.9;
+        rotate: -4deg;
+      }
+      70% {
+        opacity: 1;
+        translate: 0 0.2rem;
+        scale: 1;
+        rotate: 0deg;
+      }
+      100% {
+        translate: 0 0;
+      }
+    }
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 0 0 color-mix(in srgb, var(--epub) 0%, transparent);
+      }
+      40% {
+        box-shadow: 0 0 0 0.6rem color-mix(in srgb, var(--epub) 55%, transparent);
+      }
+      100% {
+        box-shadow: 0 0 0 1.4rem color-mix(in srgb, var(--epub) 0%, transparent);
+      }
+    }
+    @keyframes stamp {
+      0% {
+        opacity: 0;
+        scale: 0.4;
+      }
+      70% {
+        opacity: 1;
+        scale: 1.15;
+      }
+      100% {
+        scale: 1;
       }
     }
     /* The wings open over the tablet as the logo comes into view. */
@@ -263,3 +410,7 @@ const stepStage = [0, 0, 0, 1, 2];
     }
   }
 </style>
+
+<script>
+  import "../scripts/ride.ts";
+</script>
