@@ -1,6 +1,8 @@
 // Starts the real Anzu window (public/demo, built from crates/anzu-web by
 // `bun run demo:build`).
 
+import demoInfo from "../../public/demo/version.json";
+
 interface AnzuDemo {
   start(canvas: HTMLCanvasElement, lang: string, theme: string, onEvent: (event: string) => void): Promise<void>;
   set_language(lang: string): void;
@@ -11,7 +13,11 @@ interface AnzuModule {
   Demo: new () => AnzuDemo;
 }
 
-const DEMO_URL = "/demo/anzu_web.js";
+// The fingerprint of the build (scripts/build-demo.ts): a browser that kept an older demo
+// in its cache asks for the new files instead of reusing the old ones.
+const BUILD = (demoInfo as { build?: string }).build ?? "";
+const DEMO_URL = `/demo/anzu_web.js?v=${BUILD}`;
+const WASM_URL = `/demo/anzu_web_bg.wasm?v=${BUILD}`;
 // The smallest the real window can be made (`MIN_WIDTH` in crates/anzu/src/ui/mod.rs):
 // narrower than this, the app scales itself down instead of laying out again.
 const MIN_WIDTH = 820;
@@ -83,7 +89,7 @@ async function start(stage: HTMLElement): Promise<void> {
   const dark = window.matchMedia("(prefers-color-scheme: dark)");
   try {
     const module = await loadModule();
-    await module.default();
+    await module.default({ module_or_path: WASM_URL });
     const demo = new module.Demo();
     await demo.start(canvas, stage.dataset.lang ?? "en", themeNow(dark), () => {});
     dark.addEventListener("change", () => demo.set_theme(themeNow(dark)));
