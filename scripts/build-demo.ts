@@ -7,6 +7,7 @@
 // builds without Rust.
 
 import { $ } from "bun";
+import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, rmSync, writeFileSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
@@ -32,5 +33,10 @@ await $`bun x wasm-opt -Os --strip-debug --strip-producers -o ${bg} ${bg}`.cwd(s
 
 const cargo = readFileSync(join(app, "Cargo.toml"), "utf8");
 const version = /\[workspace\.package\][^[]*?version\s*=\s*"([^"]+)"/s.exec(cargo)?.[1] ?? "unknown";
-writeFileSync(join(out, "version.json"), JSON.stringify({ version }) + "\n");
+// The files keep their names from one build to the next, and browsers keep them for an
+// hour: the page asks for them with this fingerprint, so a new build is never served stale.
+const hash = createHash("sha256");
+for (const file of ["anzu_web.js", "anzu_web_bg.wasm"]) hash.update(readFileSync(join(out, file)));
+const build = hash.digest("hex").slice(0, 12);
+writeFileSync(join(out, "version.json"), JSON.stringify({ version, build }) + "\n");
 console.log(`Demo of Anzu ${version} written to public/demo`);
