@@ -338,8 +338,8 @@ a {
   .path .file,
   .path .stamp,
   .fact,
-  .name-mark .wing,
-  .name-mark .tablet {
+  .name-mark .block,
+  .name-mark .line {
     animation: none !important;
   }
   .btn-lift:hover,
