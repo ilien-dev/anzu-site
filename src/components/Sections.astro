@@ -374,35 +374,41 @@ const FACT_ICONS = [
     }
   }
   @supports (animation-timeline: view()) {
-    /* The wings open over the tablet as the logo comes into view. */
-    .name-mark :global(.wing) {
-      transform-box: view-box;
-      transform-origin: 32px 58px;
-      animation: wing linear both;
+    /* The block settles and the lines slide out of it as the logo comes into view. */
+    .name-mark :global(.block),
+    .name-mark :global(.line) {
+      transform-box: fill-box;
+      transform-origin: 0 50%;
       animation-timeline: view();
-      animation-range: entry 10% cover 45%;
     }
-    .name-mark :global(.wing-left) {
-      --tilt: 16deg;
-    }
-    .name-mark :global(.wing-right) {
-      --tilt: -16deg;
-    }
-    .name-mark :global(.tablet) {
-      animation: tablet linear both;
+    .name-mark :global(.block) {
+      animation: block linear both;
       animation-timeline: view();
-      animation-range: entry 30% cover 50%;
+      animation-range: entry 10% cover 35%;
     }
-    @keyframes wing {
+    .name-mark :global(.line) {
+      animation: line linear both;
+      animation-timeline: view();
+      animation-range: entry 25% cover 45%;
+    }
+    .name-mark :global(.line:nth-of-type(2)) {
+      animation-range: entry 30% cover 48%;
+    }
+    .name-mark :global(.line:nth-of-type(3)) {
+      animation-range: entry 35% cover 51%;
+    }
+    .name-mark :global(.line:nth-of-type(4)) {
+      animation-range: entry 40% cover 54%;
+    }
+    @keyframes block {
       from {
-        transform: rotate(var(--tilt)) scaleX(0.55);
+        transform: scaleX(0.4);
         opacity: 0.2;
       }
     }
-    @keyframes tablet {
+    @keyframes line {
       from {
-        transform: translateY(8px);
-        opacity: 0;
+        transform: scaleX(0);
       }
     }
   }

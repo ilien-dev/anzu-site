@@ -413,8 +413,8 @@
         "purpose": "The output path, segment by segment."
       },
       {
-        "name": "wing",
-        "value": "scroll-driven, wings from rotate(+-16deg) scaleX(0.55); tablet rises 8px",
+        "name": "mark",
+        "value": "scroll-driven, block from scaleX(0.4) and opacity 0.2; lines grow from scaleX(0), staggered",
         "purpose": "The logo assembling in the name section."
       },
       {

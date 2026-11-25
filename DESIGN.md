@@ -212,19 +212,18 @@ header is.
 - Ink band header and closing band in both themes; content between them on bg with panel
   surfaces.
 - Four state pastels as fills, always with ink on top.
-- The tricolour logo: a lilac wing, a peach wing and a butter tablet on an ink tile.
+- The two-colour logo: a peach block that turns into mint lines of text, on an ink tile.
 - Drawn line icons beside actions; the Windows mark on every download button.
 - One shadow in the whole system, under the window.
 
 ## Colors
 
 ### State pastels (same in both themes)
-- **Peach** (drm): with DRM. First track stage, the top of the flow spine, the right wing.
-- **Lilac** (unlocked): unlocked. Second track stage, the left wing.
+- **Peach** (drm): with DRM. First track stage, the top of the flow spine, the block of the logo.
+- **Lilac** (unlocked): unlocked. Second track stage.
 - **Mint** (epub): EPUB. Third track stage, the highlighted phrase of the hero, the final
-  file of the path.
-- **Butter** (butter, shell-accent): chosen or running. Primary action on the ink band, the
-  tablet of the logo.
+  file of the path, the lines of the logo.
+- **Butter** (butter, shell-accent): chosen or running. Primary action on the ink band.
 - **Sky** (info): information. A fact chip, the update notice in the app.
 
 ### Neutral

@@ -158,8 +158,8 @@ export const en: Strings = {
   name: {
     title: "Why “Anzu”.",
     body:
-      "In Mesopotamian myth, Anzu is the bird that stole the Tablet of Destinies from the gods. The logo is an A made of two open wings over a tablet.",
-    mark: "The Anzu logo: two wings forming an A over a tablet",
+      "In Mesopotamian myth, Anzu is the bird that stole the Tablet of Destinies from the gods. The logo is a solid block that turns into lines of text: a locked book becoming an EPUB.",
+    mark: "The Anzu logo: a block that turns into lines of text",
   },
   responsible: {
     title: "Use it responsibly.",
@@ -307,8 +307,8 @@ export const es: Strings = {
   name: {
     title: "Por qué «Anzu».",
     body:
-      "En la mitología mesopotámica, Anzu es el ave que les robó a los dioses la Tablilla de los Destinos. El logo es una A hecha con dos alas abiertas sobre una tablilla.",
-    mark: "El logo de Anzu: dos alas que forman una A sobre una tablilla",
+      "En la mitología mesopotámica, Anzu es el ave que les robó a los dioses la Tablilla de los Destinos. El logo es un bloque sólido que se convierte en líneas de texto: un libro bloqueado que se vuelve EPUB.",
+    mark: "El logo de Anzu: un bloque que se convierte en líneas de texto",
   },
   responsible: {
     title: "Úsala con responsabilidad.",
